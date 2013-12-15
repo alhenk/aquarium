@@ -1,0 +1,10 @@
+PROJECT AQUARIUM
+TASK:
+Define hierarchy of fishes and reptiles. Create aquarium. 
+Sum the total cost up including accessories.
+
+To run the application navigate into the project folder aquarium 
+    $cd aquarium
+    
+ and then enter:
+	$ java -cp bin com.epam.koryagin.aquarium.Runner 
