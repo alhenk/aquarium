@@ -4,22 +4,22 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import com.epam.koryagin.aquarium.animal.FishFactory;
-import com.epam.koryagin.aquarium.animal.Fishes;
+import com.epam.koryagin.aquarium.animal.FishType;
 import com.epam.koryagin.aquarium.animal.ReptileFactory;
-import com.epam.koryagin.aquarium.animal.Reptiles;
-import com.epam.koryagin.aquarium.tank.Accessories;
+import com.epam.koryagin.aquarium.animal.ReptileType;
+import com.epam.koryagin.aquarium.tank.AccessoryType;
 import com.epam.koryagin.aquarium.tank.Tank;
 import com.epam.koryagin.aquarium.tank.TankManager;
-import com.epam.koryagin.aquarium.tank.Tanks;
+import com.epam.koryagin.aquarium.tank.TankType;
 
 public class Menu {
-	private States state = States.START;
+	private State state = State.START;
 	private ReptileFactory rf = new ReptileFactory();
 	private FishFactory ff = new FishFactory();
 	private TankManager tm = new TankManager();
 	private static Tank tank;
 	
-	public States oneStep(int choise){
+	public State oneStep(int choise){
 		
 		switch (state){
 		case START:
@@ -40,44 +40,44 @@ public class Menu {
 			break;
 		case EXIT:
 		default:
-			state = States.EXIT;
+			state = State.EXIT;
 			break;
 		}
 		return state;
 	}
 	
-	public States equipMenu(int command){
+	public State equipMenu(int command){
 		if (command == 0){
-			return States.EXIT;
+			return State.EXIT;
 		}
 		switch (command){
 		case 1:
-			state = States.SELECT_FISHES;
+			state = State.SELECT_FISHES;
 			break;
 		case 2:
-			state = States.SELECT_REPTILES;
+			state = State.SELECT_REPTILES;
 			break;
 		case 3:
-			state = States.SELECT_ACCESSORIES;
+			state = State.SELECT_ACCESSORIES;
 			break;
 		case 4:
 			generateRepor();
 			break;
 		default:
-			state = States.EXIT;
+			state = State.EXIT;
 			break;
 		}
 		return state;
 	}
 	
-	public States initTank(int command){
+	public State initTank(int command){
 		if (command == 0){
-			return States.EXIT;
+			return State.EXIT;
 		}
-		Tanks theItem = findItemByCode(command);
+		TankType theItem = TankType.select(command);
 		if(theItem == null){
 			System.out.println("Wrong Choise - no such item");
-			return States.INIT_TANK;
+			return State.INIT_TANK;
 		}
 		switch (theItem){
 		case COMMUNITY_TANK :
@@ -89,20 +89,20 @@ public class Menu {
 			state = buyTheItem(theItem);
 			break;
 		default:
-		state = States.EXIT;
+		state = State.EXIT;
 			break;
 		}
 		return state;
 	}
 	
-	public States selectFish(int command){
+	public State selectFish(int command){
 		if (command == 0){
-			return States.EXIT;
+			return State.EXIT;
 		}
-		Fishes theItem = findFishByCode(command);
+		FishType theItem = FishType.select(command);
 		if(theItem == null){
 			System.out.println("Wrong Choise - no such item");
-			return States.EQUIP_AND_POPULATE;
+			return State.EQUIP_AND_POPULATE;
 		}
 
 		switch (theItem){
@@ -122,20 +122,20 @@ public class Menu {
 			buyTheFish(theItem);
 			break;
 		default:
-			state = States.EXIT;
+			state = State.EXIT;
 			break;
 		}
 		return state;
 	}
 	
-	public States selectReptile(int command){
+	public State selectReptile(int command){
 		if (command == 0){
-			return States.EXIT;
+			return State.EXIT;
 		}
-		Reptiles theItem = findReptileByCode(command);
+		ReptileType theItem = ReptileType.select(command);
 		if(theItem == null){
 			System.out.println("Wrong Choise - no such item");
-			return States.EQUIP_AND_POPULATE;
+			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
 		case ALLIGATOR:
@@ -153,20 +153,20 @@ public class Menu {
 			buyTheReptile(theItem);
 			break;
 		default:
-			state = States.EXIT;
+			state = State.EXIT;
 			break;
 		}
 		return state;
 	}
 	
-	public States selectAccessory(int command){
+	public State selectAccessory(int command){
 		if (command == 0){
-			return States.EXIT;
+			return State.EXIT;
 		}
-		Accessories theItem = findAccessoryByCode(command);
+		AccessoryType theItem = findAccessoryByCode(command);
 		if(theItem == null){
 			System.out.println("Wrong Choise - no such item");
-			return States.EQUIP_AND_POPULATE;
+			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
 		case ALGEA:
@@ -180,7 +180,7 @@ public class Menu {
 			buyTheAccessory(theItem);
 			break;
 		default:
-			state = States.EXIT;
+			state = State.EXIT;
 			break;
 		}
 		return state;
@@ -188,7 +188,7 @@ public class Menu {
 	
 	public void displayInitTankMenu(){
 		StringBuilder sb = new StringBuilder();
-		for (Tanks t : Tanks.values()){
+		for (TankType t : TankType.values()){
 			sb.append(t.getCode()).append(" ");
 			sb.append(t.getName().toUpperCase()).append("\n");
 		}
@@ -200,7 +200,7 @@ public class Menu {
 	public void displayFishMenu(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
-		for (Fishes f : Fishes.values()){
+		for (FishType f : FishType.values()){
 			sb.append(f.getCode()).append(" ");
 			sb.append(f.getName().toUpperCase()).append("\n");
 		}
@@ -212,7 +212,7 @@ public class Menu {
 	public void displayReptileMenu(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
-		for (Reptiles r : Reptiles.values()){
+		for (ReptileType r : ReptileType.values()){
 			sb.append(r.getCode()).append(" ");
 			sb.append(r.getName().toUpperCase()).append("\n");
 		}
@@ -223,7 +223,7 @@ public class Menu {
 	public void displayAccessoryMenu(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
-		for (Accessories a : Accessories.values()){
+		for (AccessoryType a : AccessoryType.values()){
 			sb.append(a.getCode()).append(" ");
 			sb.append(a.getName().toUpperCase()).append("\n");
 		}
@@ -243,48 +243,48 @@ public class Menu {
 		System.out.print("> ");
 	}
 			
-	public States buyTheItem(Tanks theItem){
+	public State buyTheItem(TankType theItem){
 		if(theItem != null) {
 			tank = tm.createTank(theItem);
 		} else {
 			System.out.println("Wrong Choise - no such item");
-			state = States.INIT_TANK;
+			state = State.INIT_TANK;
 		}
-		state = States.EQUIP_AND_POPULATE;
+		state = State.EQUIP_AND_POPULATE;
 		return state;
 	}
 	
-	public States buyTheFish(Fishes theItem){
+	public State buyTheFish(FishType theItem){
 		if(theItem != null) {
 			tank.addAnimal(ff.createAnimal(theItem));
 		} else {
 			System.out.println("Wrong Choise - no such item");
 		}
-		state = States.EQUIP_AND_POPULATE;
+		state = State.EQUIP_AND_POPULATE;
 		return state;
 	}
 	
-	public States buyTheReptile(Reptiles theItem){
+	public State buyTheReptile(ReptileType theItem){
 		if(theItem != null) {
 			tank.addAnimal(rf.createAnimal(theItem));
 		} else {
 			System.out.println("Wrong Choise - no such item");
 		}
-		state = States.EQUIP_AND_POPULATE;
+		state = State.EQUIP_AND_POPULATE;
 		return state;
 	}
 	
-	public States buyTheAccessory(Accessories theItem){
+	public State buyTheAccessory(AccessoryType theItem){
 		if(theItem != null) {
 			tank.addAccessory(tm.createAccessory(theItem));
 		} else {
 			System.out.println("Wrong Choise - no such item");
 		}
-		state = States.EQUIP_AND_POPULATE;
+		state = State.EQUIP_AND_POPULATE;
 		return state;
 	}
 	
-	public States generateRepor(){
+	public State generateRepor(){
 		NumberFormat formatter = new DecimalFormat("#0.00");
 		StringBuilder sb = new StringBuilder();
 		sb.append(tank.toString());
@@ -293,29 +293,9 @@ public class Menu {
 		return state;
 	}
 	
-	public Tanks findItemByCode(int code){
-		Tanks tank = null;
-		for (Tanks t : Tanks.values()){
-			if (t.getCode() == code){
-				tank = t;
-			}
-		}
-		return tank;
-	}
-	
-	public Fishes findFishByCode(int code){
-		Fishes fish = null;
-		for (Fishes f : Fishes.values()){
-			if (f.getCode() == code){
-				fish = f;
-			}
-		}
-		return fish;
-	}
-	
-	public Reptiles findReptileByCode(int code){
-		Reptiles reptile = null;
-		for (Reptiles r : Reptiles.values()){
+	public ReptileType findReptileByCode(int code){
+		ReptileType reptile = null;
+		for (ReptileType r : ReptileType.values()){
 			if (r.getCode() == code){
 				reptile = r;
 			}
@@ -323,9 +303,9 @@ public class Menu {
 		return reptile;
 	}
 	
-	public Accessories findAccessoryByCode(int code){
-		Accessories accessory = null;
-		for (Accessories a : Accessories.values()){
+	public AccessoryType findAccessoryByCode(int code){
+		AccessoryType accessory = null;
+		for (AccessoryType a : AccessoryType.values()){
 			if (a.getCode() == code){
 				accessory = a;
 			}

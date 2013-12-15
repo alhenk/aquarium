@@ -25,8 +25,8 @@ public class FishFactory implements AnimalFactory {
 	
 	Animal animal;
 	Fish fish;
-	public Animal createAnimal(Animals pet){
-		Fishes fishes = (Fishes)pet;
+	public Animal createAnimal(AnimalType pet){
+		FishType fishes = (FishType)pet;
 		switch (fishes){
 		case ANGELFISH:
 			animal = new Fish();

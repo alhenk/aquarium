@@ -26,8 +26,8 @@ public class ReptileFactory implements AnimalFactory {
 	private static final double turtleCost = generateCost(600.0, 3000.0);
 
 	Animal animal;
-	public Animal createAnimal(Animals pet){
-		Reptiles reptiles = (Reptiles) pet;
+	public Animal createAnimal(AnimalType pet){
+		ReptileType reptiles = (ReptileType) pet;
 		switch (reptiles){
 		case ALLIGATOR:
 			animal = new Reptile();

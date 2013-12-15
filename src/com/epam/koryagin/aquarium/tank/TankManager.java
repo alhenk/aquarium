@@ -45,47 +45,47 @@ public class TankManager {
 	 *            - enumerated tank constructor choice
 	 * @return tank - instance of Tank
 	 */
-	public Tank createTank(Tanks tanks) {
+	public Tank createTank(TankType tanks) {
 		switch (tanks) {
 		case COMMUNITY_TANK:
 			tank = new Tank();
 			tank.setName("Community tank");
-			tank.setDescription(Tanks.COMMUNITY_TANK.getDescription());
+			tank.setDescription(TankType.COMMUNITY_TANK.getDescription());
 			tank.setVolume(30.0);
 			tank.setCost(communityTankCost);
 			break;
 		case TERRARIUM:
 			tank = new Tank();
 			tank.setName("Terrarium");
-			tank.setDescription(Tanks.TERRARIUM.getDescription());
+			tank.setDescription(TankType.TERRARIUM.getDescription());
 			tank.setVolume(100.0);
 			tank.setCost(terrariumCost);
 			break;
 		case GOLDFISH_BOWL:
 			tank = new Tank();
 			tank.setName("Goldfish bowl");
-			tank.setDescription(Tanks.GOLDFISH_BOWL.getDescription());
+			tank.setDescription(TankType.GOLDFISH_BOWL.getDescription());
 			tank.setVolume(10.0);
 			tank.setCost(goldfishBowlCost);
 			break;
 		case SHARK_POND:
 			tank = new Tank();
 			tank.setName("Shark pond");
-			tank.setDescription(Tanks.SHARK_POND.getDescription());
+			tank.setDescription(TankType.SHARK_POND.getDescription());
 			tank.setVolume(10000.0);
 			tank.setCost(sharkPondCost);
 			break;
 		case SPECIES_TANK:
 			tank = new Tank();
 			tank.setName("Species tank");
-			tank.setDescription(Tanks.SPECIES_TANK.getDescription());
+			tank.setDescription(TankType.SPECIES_TANK.getDescription());
 			tank.setVolume(10.0);
 			tank.setCost(speciesTankCost);
 			break;
 		case TROPICAL_AQUARIUM:
 			tank = new Tank();
 			tank.setName("Tropical aquarium");
-			tank.setDescription(Tanks.TROPICAL_AQUARIUM.getDescription());
+			tank.setDescription(TankType.TROPICAL_AQUARIUM.getDescription());
 			tank.setVolume(10.0);
 			tank.setCost(tropicalAquariumCost);
 			break;
@@ -103,55 +103,55 @@ public class TankManager {
 	 *            - enumerated accessory constructor choice
 	 * @return - an instance of Accessory
 	 */
-	public Accessory createAccessory(Accessories accessories) {
+	public Accessory createAccessory(AccessoryType accessories) {
 
 		switch (accessories) {
 		case ALGEA:
 			accessory = new Accessory();
 			accessory.setName("Algea");
-			accessory.setDescription(Accessories.ALGEA.getDescription());
+			accessory.setDescription(AccessoryType.ALGEA.getDescription());
 			accessory.setCost(algeaCost);
 			break;
 		case FILTER:
 			accessory = new Accessory();
 			accessory.setName("Filter");
-			accessory.setDescription(Accessories.FILTER.getDescription());
+			accessory.setDescription(AccessoryType.FILTER.getDescription());
 			accessory.setCost(filterCost);
 			break;
 		case HEATER:
 			accessory = new Accessory();
 			accessory.setName("Heater");
-			accessory.setDescription(Accessories.HEATER.getDescription());
+			accessory.setDescription(AccessoryType.HEATER.getDescription());
 			accessory.setCost(heaterCost);
 			break;
 		case LAMP:
 			accessory = new Accessory();
 			accessory.setName("Lamp");
-			accessory.setDescription(Accessories.LAMP.getDescription());
+			accessory.setDescription(AccessoryType.LAMP.getDescription());
 			accessory.setCost(lampCost);
 			break;
 		case PEBLES:
 			accessory = new Accessory();
 			accessory.setName("Pebles");
-			accessory.setDescription(Accessories.PEBLES.getDescription());
+			accessory.setDescription(AccessoryType.PEBLES.getDescription());
 			accessory.setCost(peblesCost);
 			break;
 		case PUMP:
 			accessory = new Accessory();
 			accessory.setName("Pump");
-			accessory.setDescription(Accessories.PUMP.getDescription());
+			accessory.setDescription(AccessoryType.PUMP.getDescription());
 			accessory.setCost(pumpCost);
 			break;
 		case SAND:
 			accessory = new Accessory();
 			accessory.setName("Sand");
-			accessory.setDescription(Accessories.SAND.getDescription());
+			accessory.setDescription(AccessoryType.SAND.getDescription());
 			accessory.setCost(sandCost);
 			break;
 		case THERMOMETER:
 			accessory = new Accessory();
 			accessory.setName("Thermometer");
-			accessory.setDescription(Accessories.THERMOMETER.getDescription());
+			accessory.setDescription(AccessoryType.THERMOMETER.getDescription());
 			accessory.setCost(thermometerCost);
 			break;
 		default:
