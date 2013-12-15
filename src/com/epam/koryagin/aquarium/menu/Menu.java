@@ -163,7 +163,7 @@ public class Menu {
 		if (command == 0){
 			return State.EXIT;
 		}
-		AccessoryType theItem = findAccessoryByCode(command);
+		AccessoryType theItem = AccessoryType.select(command);
 		if(theItem == null){
 			System.out.println("Wrong Choise - no such item");
 			return State.EQUIP_AND_POPULATE;
@@ -293,26 +293,6 @@ public class Menu {
 		return state;
 	}
 	
-	public ReptileType findReptileByCode(int code){
-		ReptileType reptile = null;
-		for (ReptileType r : ReptileType.values()){
-			if (r.getCode() == code){
-				reptile = r;
-			}
-		}
-		return reptile;
-	}
-	
-	public AccessoryType findAccessoryByCode(int code){
-		AccessoryType accessory = null;
-		for (AccessoryType a : AccessoryType.values()){
-			if (a.getCode() == code){
-				accessory = a;
-			}
-		}
-		return accessory;
-	}
-		
 	public void clean(){
 		for(int i = 0; i < 50; i++){
 			System.out.println();

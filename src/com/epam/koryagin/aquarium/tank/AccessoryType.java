@@ -3,8 +3,6 @@ package com.epam.koryagin.aquarium.tank;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.epam.koryagin.aquarium.animal.ReptileType;
-
 /**
  * Assortment of accessories for aquarium.
  * A short list of some items instead of type generalization,
