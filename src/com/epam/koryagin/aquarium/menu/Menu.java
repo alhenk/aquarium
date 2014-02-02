@@ -3,6 +3,7 @@ package com.epam.koryagin.aquarium.menu;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+import com.epam.koryagin.aquarium.animal.AnimalType;
 import com.epam.koryagin.aquarium.animal.FishFactory;
 import com.epam.koryagin.aquarium.animal.FishType;
 import com.epam.koryagin.aquarium.animal.ReptileFactory;
@@ -119,7 +120,7 @@ public class Menu {
 		case SHARK:
 		case TRIGGERFISH:
 		case WRASSE:
-			buyTheFish(theItem);
+			buyTheAnimal((AnimalType)theItem);
 			break;
 		default:
 			state = State.EXIT;
@@ -150,7 +151,7 @@ public class Menu {
 		case TERRAPIN:
 		case TORTOISE:
 		case TURTLE:
-			buyTheReptile(theItem);
+			buyTheAnimal((AnimalType)theItem);
 			break;
 		default:
 			state = State.EXIT;
@@ -254,29 +255,46 @@ public class Menu {
 		return state;
 	}
 	
-	public State buyTheFish(FishType theItem){
-		if(theItem != null) {
-			tank.addAnimal(ff.createAnimal(theItem));
-		} else {
-			System.out.println("Wrong Choise - no such item");
-		}
-		state = State.EQUIP_AND_POPULATE;
-		return state;
-	}
+//	public State buyTheFish(FishType theItem){
+//		if(theItem != null) {
+//			tank.addAnimal(ff.createAnimal(theItem));
+//		} else {
+//			System.out.println("Wrong Choise - no such item");
+//		}
+//		state = State.EQUIP_AND_POPULATE;
+//		return state;
+//	}
 	
-	public State buyTheReptile(ReptileType theItem){
-		if(theItem != null) {
-			tank.addAnimal(rf.createAnimal(theItem));
-		} else {
-			System.out.println("Wrong Choise - no such item");
-		}
-		state = State.EQUIP_AND_POPULATE;
-		return state;
-	}
+//	public State buyTheReptile(ReptileType theItem){
+//		if(theItem != null) {
+//			tank.addAnimal(rf.createAnimal(theItem));
+//		} else {
+//			System.out.println("Wrong Choise - no such item");
+//		}
+//		state = State.EQUIP_AND_POPULATE;
+//		return state;
+//	}
 	
 	public State buyTheAccessory(AccessoryType theItem){
 		if(theItem != null) {
 			tank.addAccessory(tm.createAccessory(theItem));
+		} else {
+			System.out.println("Wrong Choise - no such item");
+		}
+		state = State.EQUIP_AND_POPULATE;
+		return state;
+	}
+	
+	public State buyTheAnimal(AnimalType animal){
+		if(animal != null) {
+			if (animal instanceof FishType){
+				System.out.println(animal.getClass());
+				
+				tank.addAnimal(ff.createAnimal((FishType)animal));
+			}else if(animal instanceof ReptileType){
+				System.out.println(animal.getClass());
+				tank.addAnimal(rf.createAnimal((ReptileType)animal));
+			}
 		} else {
 			System.out.println("Wrong Choise - no such item");
 		}
