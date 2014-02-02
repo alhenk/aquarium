@@ -255,26 +255,7 @@ public class Menu {
 		return state;
 	}
 	
-//	public State buyTheFish(FishType theItem){
-//		if(theItem != null) {
-//			tank.addAnimal(ff.createAnimal(theItem));
-//		} else {
-//			System.out.println("Wrong Choise - no such item");
-//		}
-//		state = State.EQUIP_AND_POPULATE;
-//		return state;
-//	}
-	
-//	public State buyTheReptile(ReptileType theItem){
-//		if(theItem != null) {
-//			tank.addAnimal(rf.createAnimal(theItem));
-//		} else {
-//			System.out.println("Wrong Choise - no such item");
-//		}
-//		state = State.EQUIP_AND_POPULATE;
-//		return state;
-//	}
-	
+
 	public State buyTheAccessory(AccessoryType theItem){
 		if(theItem != null) {
 			tank.addAccessory(tm.createAccessory(theItem));
@@ -288,11 +269,8 @@ public class Menu {
 	public State buyTheAnimal(AnimalType animal){
 		if(animal != null) {
 			if (animal instanceof FishType){
-				System.out.println(animal.getClass());
-				
 				tank.addAnimal(ff.createAnimal((FishType)animal));
 			}else if(animal instanceof ReptileType){
-				System.out.println(animal.getClass());
 				tank.addAnimal(rf.createAnimal((ReptileType)animal));
 			}
 		} else {
