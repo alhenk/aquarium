@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.epam.koryagin.aquarium.tank;
+package com.epam.koryagin.aquarium.accessory;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

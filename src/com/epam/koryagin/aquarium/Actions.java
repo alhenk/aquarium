@@ -2,6 +2,9 @@ package com.epam.koryagin.aquarium;
 
 import java.util.Scanner;
 
+import com.epam.koryagin.aquarium.accessory.Accessory;
+import com.epam.koryagin.aquarium.accessory.AccessoryManager;
+import com.epam.koryagin.aquarium.accessory.AccessoryType;
 import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.animal.FishFactory;
 import com.epam.koryagin.aquarium.animal.FishType;
@@ -9,9 +12,6 @@ import com.epam.koryagin.aquarium.animal.ReptileFactory;
 import com.epam.koryagin.aquarium.animal.ReptileType;
 import com.epam.koryagin.aquarium.menu.Menu;
 import com.epam.koryagin.aquarium.menu.State;
-import com.epam.koryagin.aquarium.tank.AccessoryManager;
-import com.epam.koryagin.aquarium.tank.AccessoryType;
-import com.epam.koryagin.aquarium.tank.Accessory;
 import com.epam.koryagin.aquarium.tank.Tank;
 import com.epam.koryagin.aquarium.tank.TankManager;
 import com.epam.koryagin.aquarium.tank.TankType;

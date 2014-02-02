@@ -2,6 +2,7 @@ package com.epam.koryagin.aquarium.tank;
 
 import java.util.List;
 
+import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.animal.Animal;
 
 /**

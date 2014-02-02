@@ -8,6 +8,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.animal.*;
 
 /**

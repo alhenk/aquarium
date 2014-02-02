@@ -1,4 +1,5 @@
-package com.epam.koryagin.aquarium.tank;
+package com.epam.koryagin.aquarium.accessory;
+
 
 public class AccessoryManager {
 	// Accessories random cost constants
