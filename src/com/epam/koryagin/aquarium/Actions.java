@@ -110,7 +110,12 @@ public class Actions {
 		menu.displayInitTankMenu();
 		try {
 			while (state != State.EXIT) {
-				if (userInput.hasNextInt()) {
+				if (userInput.hasNext()) {
+					if (!userInput.hasNextInt()){
+						userInput.next();
+						System.out.println("Please enter a digit.");
+						continue;
+					}
 					command = userInput.nextInt();
 					state = menu.oneStep(command);
 					switch (state){
