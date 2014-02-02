@@ -1,12 +1,27 @@
 # FOR JAVA
+<<<<<<< HEAD
 *.class
 
+=======
+
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+>>>>>>> b1c513129d1905dfcd18811d4b07e44bf3c2128b
 # Package Files #
 *.jar
 *.war
 *.ear
 
+<<<<<<< HEAD
 #FOR Eclipse
+=======
+
+#FOR Eclipse
+
+>>>>>>> b1c513129d1905dfcd18811d4b07e44bf3c2128b
 *.pydevproject
 .metadata
 .gradle
@@ -20,6 +35,15 @@ local.properties
 .settings/
 .loadpath
 
+<<<<<<< HEAD
+=======
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+>>>>>>> b1c513129d1905dfcd18811d4b07e44bf3c2128b
 # CDT-specific
 .cproject
 
@@ -31,5 +55,9 @@ local.properties
 target
 
 # TeXlipse plugin
+<<<<<<< HEAD
 .texlipse
 
+=======
+.texlipse
+>>>>>>> b1c513129d1905dfcd18811d4b07e44bf3c2128b
