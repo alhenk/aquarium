@@ -285,6 +285,9 @@ public class Menu {
 		return state;
 	}
 	
+	/**
+	 * scroll 50 lines, imitation of clean() 
+	 */
 	public void clean(){
 		for(int i = 0; i < 50; i++){
 			System.out.println();
