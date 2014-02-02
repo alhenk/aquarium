@@ -265,7 +265,12 @@ public class Menu {
 		state = State.EQUIP_AND_POPULATE;
 		return state;
 	}
-	
+	/**
+	 * buyTheAnimal -	add animal to tank with corresponded
+	 * 					factory method
+	 * @param animal
+	 * @return
+	 */
 	public State buyTheAnimal(AnimalType animal){
 		if(animal != null) {
 			if (animal instanceof FishType){
