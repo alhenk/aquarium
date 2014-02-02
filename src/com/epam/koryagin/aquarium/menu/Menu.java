@@ -87,7 +87,7 @@ public class Menu {
 		case GOLDFISH_BOWL:
 		case SHARK_POND:
 		case TERRARIUM:
-			state = buyTheTank(theItem);
+			state = buyTheItem((TankType)theItem);
 			break;
 		default:
 		state = State.EXIT;
@@ -244,16 +244,16 @@ public class Menu {
 		System.out.print("> ");
 	}
 			
-	public State buyTheTank(TankType theTank){
-		if(theTank != null) {
-			tank = tm.createTank(theTank);
-		} else {
-			System.out.println("Wrong Choise - no such item");
-			return state = State.INIT_TANK;
-		}
-		state = State.EQUIP_AND_POPULATE;
-		return state;
-	}
+//	public State buyTheTank(TankType theTank){
+//		if(theTank != null) {
+//			tank = tm.createTank(theTank);
+//		} else {
+//			System.out.println("Wrong Choice - no such item");
+//			return state = State.INIT_TANK;
+//		}
+//		state = State.EQUIP_AND_POPULATE;
+//		return state;
+//	}
 	
 
 //	public State buyTheAccessory(AccessoryType theItem){
@@ -279,11 +279,14 @@ public class Menu {
 				tank.addAnimal(rf.createAnimal((ReptileType)item));
 			} else if (item instanceof AccessoryType){
 				tank.addAccessory(tm.createAccessory((AccessoryType)item));
-			} //else if (item instanceof TankType){
-				
-			//}
+			} else if (item instanceof TankType){
+				tank = tm.createTank((TankType)item);
+			}
 		} else {
-			System.out.println("Wrong Choise - no such item");
+			System.out.println("Wrong Choice - no such item");
+			if (item instanceof TankType){
+				return state = State.INIT_TANK;
+			}
 		}
 		state = State.EQUIP_AND_POPULATE;
 		return state;
