@@ -87,7 +87,7 @@ public class Menu {
 		case GOLDFISH_BOWL:
 		case SHARK_POND:
 		case TERRARIUM:
-			state = buyTheItem(theItem);
+			state = buyTheTank(theItem);
 			break;
 		default:
 		state = State.EXIT;
@@ -244,9 +244,9 @@ public class Menu {
 		System.out.print("> ");
 	}
 			
-	public State buyTheItem(TankType theItem){
-		if(theItem != null) {
-			tank = tm.createTank(theItem);
+	public State buyTheTank(TankType theTank){
+		if(theTank != null) {
+			tank = tm.createTank(theTank);
 		} else {
 			System.out.println("Wrong Choise - no such item");
 			state = State.INIT_TANK;
