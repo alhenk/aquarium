@@ -3,6 +3,8 @@ package com.epam.koryagin.aquarium.animal;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.epam.koryagin.aquarium.ItemType;
+
 /**
  * The total number of Fish's species is huge,
  * and it's very difficult to support all of them
@@ -13,7 +15,7 @@ import java.util.Map;
  * @date 2013.12.11
  * @version 1.0.0
  */
-public enum FishType implements AnimalType {
+public enum FishType implements ItemType {
 	ANGELFISH(1, "Angelfish", "Class Actinopterygii, Order Perciformes"),
 	BASSLET(2,"Basslet", "Class: Actinopterygii, Order Perciformes"),
 	BOXFISH(3,"Anthia", "Class: Actinopterygii, Order Tetraodontiformes"),

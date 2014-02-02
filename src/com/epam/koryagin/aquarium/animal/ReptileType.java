@@ -3,6 +3,8 @@ package com.epam.koryagin.aquarium.animal;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.epam.koryagin.aquarium.ItemType;
+
 /**
  * The total number of Reptilia's subclasses 
  * and included species is limited,
@@ -12,7 +14,7 @@ import java.util.Map;
  * @date 2013.12.11
  * @version 1.0.0
  */
-public enum ReptileType implements AnimalType {
+public enum ReptileType implements ItemType {
 	TURTLE(1, "Turtle", "Class Reptilia, Order Testudines"),
 	TORTOISE(2,"Tortoise", "Class Reptilia, Order Testudines"),
 	TERRAPIN(3,"Terrapin", "Class Reptilia, Order Testudines"),

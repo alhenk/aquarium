@@ -1,4 +1,7 @@
 package com.epam.koryagin.aquarium.animal;
+
+import com.epam.koryagin.aquarium.ItemType;
+
 /**
  * The factory creates instances of Fish
  * 
@@ -25,7 +28,7 @@ public class FishFactory implements AnimalFactory {
 	
 	Animal animal;
 	Fish fish;
-	public Animal createAnimal(AnimalType pet){
+	public Animal createAnimal(ItemType pet){
 		FishType fishes = (FishType)pet;
 		switch (fishes){
 		case ANGELFISH:

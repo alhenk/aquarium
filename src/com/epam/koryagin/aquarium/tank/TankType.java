@@ -3,6 +3,8 @@ package com.epam.koryagin.aquarium.tank;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.epam.koryagin.aquarium.ItemType;
+
 /**
  * Variety of tank types.
  * A short list of some items instead of type generalization,
@@ -12,7 +14,7 @@ import java.util.Map;
  * @date 2012.12.12
  * @version 1.0.0
  */
-public enum TankType {
+public enum TankType implements ItemType{
 	COMMUNITY_TANK(1,"Community Tank","All Glass Aquarium Tank 29 Gallon (Black) 30 X 12 X 18"),
 	TROPICAL_AQUARIUM(2,"Tropical Aquarium","250L Cabinet Aquarium Fish Tank Tropical/Marine 107cm 3.4ft"),
 	SPECIES_TANK(3,"Species Tank","55 Gallon Oceanic Fish Aquarium Tank with Pump and Stand"),

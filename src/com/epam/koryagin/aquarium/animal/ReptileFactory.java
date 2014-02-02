@@ -3,6 +3,8 @@
  */
 package com.epam.koryagin.aquarium.animal;
 
+import com.epam.koryagin.aquarium.ItemType;
+
 /**
  * The factory creates instances of Reptile
  * 
@@ -26,7 +28,7 @@ public class ReptileFactory implements AnimalFactory {
 	private static final double turtleCost = generateCost(600.0, 3000.0);
 
 	Animal animal;
-	public Animal createAnimal(AnimalType pet){
+	public Animal createAnimal(ItemType pet){
 		ReptileType reptiles = (ReptileType) pet;
 		switch (reptiles){
 		case ALLIGATOR:

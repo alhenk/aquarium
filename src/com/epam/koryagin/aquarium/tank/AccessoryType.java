@@ -3,6 +3,8 @@ package com.epam.koryagin.aquarium.tank;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.epam.koryagin.aquarium.ItemType;
+
 /**
  * Assortment of accessories for aquarium.
  * A short list of some items instead of type generalization,
@@ -12,7 +14,7 @@ import java.util.Map;
  * @date 2013.12.11
  * @version 1.0.0
  */
-public enum AccessoryType {
+public enum AccessoryType implements ItemType{
 	PUMP(1,"Pump","300Gal Aquarium Adjustable Air Pump, 6 Air Stones, 25 feet Tubing"),
 	FILTER(2,"Filter","100 Gallon Aquarium Fish Tank Canister Filter + 9W UV Sterilizer 370 GPH"),
 	ALGEA(3,"Algea","Freshwater aquarium algae"),
