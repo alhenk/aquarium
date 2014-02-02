@@ -8,6 +8,7 @@ import com.epam.koryagin.aquarium.animal.FishFactory;
 import com.epam.koryagin.aquarium.animal.FishType;
 import com.epam.koryagin.aquarium.animal.ReptileFactory;
 import com.epam.koryagin.aquarium.animal.ReptileType;
+import com.epam.koryagin.aquarium.tank.AccessoryManager;
 import com.epam.koryagin.aquarium.tank.AccessoryType;
 import com.epam.koryagin.aquarium.tank.Tank;
 import com.epam.koryagin.aquarium.tank.TankManager;
@@ -17,6 +18,7 @@ public class Menu {
 	private State state = State.START;
 	private ReptileFactory rf = new ReptileFactory();
 	private FishFactory ff = new FishFactory();
+	private AccessoryManager am = new AccessoryManager();
 	private TankManager tm = new TankManager();
 	private static Tank tank;
 	
@@ -244,30 +246,9 @@ public class Menu {
 		System.out.print("> ");
 	}
 			
-//	public State buyTheTank(TankType theTank){
-//		if(theTank != null) {
-//			tank = tm.createTank(theTank);
-//		} else {
-//			System.out.println("Wrong Choice - no such item");
-//			return state = State.INIT_TANK;
-//		}
-//		state = State.EQUIP_AND_POPULATE;
-//		return state;
-//	}
-	
-
-//	public State buyTheAccessory(AccessoryType theItem){
-//		if(theItem != null) {
-//			tank.addAccessory(tm.createAccessory(theItem));
-//		} else {
-//			System.out.println("Wrong Choice - no such item");
-//		}
-//		state = State.EQUIP_AND_POPULATE;
-//		return state;
-//	}
 	/**
-	 * buyTheAnimal -	add animal to tank with corresponded
-	 * 					factory method
+	 * buyTheItem -	create tank and 
+	 * add items to tank with corresponded factory method
 	 * @param item
 	 * @return
 	 */
@@ -278,7 +259,7 @@ public class Menu {
 			}else if(item instanceof ReptileType){
 				tank.addAnimal(rf.createAnimal((ReptileType)item));
 			} else if (item instanceof AccessoryType){
-				tank.addAccessory(tm.createAccessory((AccessoryType)item));
+				tank.addAccessory(am.createAccessory((AccessoryType)item));
 			} else if (item instanceof TankType){
 				tank = tm.createTank((TankType)item);
 			}

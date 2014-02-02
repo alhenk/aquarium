@@ -9,6 +9,7 @@ import com.epam.koryagin.aquarium.animal.ReptileFactory;
 import com.epam.koryagin.aquarium.animal.ReptileType;
 import com.epam.koryagin.aquarium.menu.Menu;
 import com.epam.koryagin.aquarium.menu.State;
+import com.epam.koryagin.aquarium.tank.AccessoryManager;
 import com.epam.koryagin.aquarium.tank.AccessoryType;
 import com.epam.koryagin.aquarium.tank.Accessory;
 import com.epam.koryagin.aquarium.tank.Tank;
@@ -41,13 +42,14 @@ public class Actions {
 	public static Tank sampleAquarium() {
 		ReptileFactory rf = new ReptileFactory();
 		FishFactory ff = new FishFactory();
+		AccessoryManager am = new AccessoryManager();
 		TankManager tm = new TankManager();
 
 		Tank tank = tm.createTank(TankType.TROPICAL_AQUARIUM);
-		tank.addAccessory(tm.createAccessory(AccessoryType.LAMP));
-		tank.addAccessory(tm.createAccessory(AccessoryType.PUMP));
-		tank.addAccessory(tm.createAccessory(AccessoryType.THERMOMETER));
-		tank.addAccessory(tm.createAccessory(AccessoryType.SAND));
+		tank.addAccessory(am.createAccessory(AccessoryType.LAMP));
+		tank.addAccessory(am.createAccessory(AccessoryType.PUMP));
+		tank.addAccessory(am.createAccessory(AccessoryType.THERMOMETER));
+		tank.addAccessory(am.createAccessory(AccessoryType.SAND));
 
 		tank.addAnimal(ff.createAnimal(FishType.CARDINALFISH));
 		tank.addAnimal(ff.createAnimal(FishType.BOXFISH));
@@ -69,6 +71,7 @@ public class Actions {
 	public static void printAllAvailableItems() {
 		ReptileFactory rf = new ReptileFactory();
 		FishFactory ff = new FishFactory();
+		AccessoryManager am = new AccessoryManager();
 		TankManager tm = new TankManager();
 
 		System.out.println("REPTILES :");
@@ -95,7 +98,7 @@ public class Actions {
 
 		System.out.println("ACCESSORIES :");
 		for (AccessoryType a : AccessoryType.values()) {
-			Accessory accessory = tm.createAccessory(a);
+			Accessory accessory = am.createAccessory(a);
 			System.out.println(accessory);
 		}
 	}
