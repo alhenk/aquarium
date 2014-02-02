@@ -284,7 +284,10 @@ public class Menu {
 		state = State.EQUIP_AND_POPULATE;
 		return state;
 	}
-	
+	/**
+	 * generateReport - tank and accessory total with description
+	 * @return
+	 */
 	public State generateRepor(){
 		NumberFormat formatter = new DecimalFormat("#0.00");
 		StringBuilder sb = new StringBuilder();
