@@ -11,6 +11,7 @@ import com.epam.koryagin.aquarium.animal.FishType;
  * @author Koryagin
  * @date 2013.12.09
  * @version 1.0.0
+ * release 20140203
  */
 public class Runner {
 
