@@ -20,6 +20,6 @@ public class Runner {
 		ItemType animal = FishType.ANGELFISH;
 		System.out.println(animal.getClass());
 		Actions.runMenu();
-		
+		//
 	}
 }
