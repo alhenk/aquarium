@@ -7,4 +7,9 @@ To run the application navigate into the project folder aquarium
     $cd aquarium
     
  and then enter:
-	$ java -cp bin com.epam.koryagin.aquarium.Runner 
+	$ java -cp bin com.epam.koryagin.aquarium.Runner
+	
+To compile and run application with ant
+	$ant build
+	$ java -cp build;lib\log4j-1.2.17.jar com.epam.koryagin.aquarium.Runner
+	
