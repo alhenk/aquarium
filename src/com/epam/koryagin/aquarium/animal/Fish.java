@@ -20,7 +20,10 @@ public class Fish extends Animal {
 	public Fish(){
 		super();
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public double getTemperatureMax() {
 		return waterTemperatureMax;
 	}
