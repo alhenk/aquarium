@@ -15,6 +15,7 @@ import com.epam.koryagin.aquarium.menu.State;
 import com.epam.koryagin.aquarium.tank.Tank;
 import com.epam.koryagin.aquarium.tank.TankManager;
 import com.epam.koryagin.aquarium.tank.TankType;
+import org.apache.log4j.Logger;
 
 /**
  * Class Action with all static methods that implements Steps of Execution 
@@ -25,12 +26,7 @@ import com.epam.koryagin.aquarium.tank.TankType;
  * @version 1.0.0
  */
 public class Actions {
-	/**
-	 * sampleAquarium creates an instance of Tank populates it with some animals
-	 * and equips it with a number of accessories
-	 * 
-	 * @return the tank
-	 */
+	private static final Logger LOGGER = Logger.getLogger(Actions.class);
 	
 	/**
 	 * Private constructor
@@ -39,6 +35,12 @@ public class Actions {
 		super();
 	}
 	
+	/**
+	 * sampleAquarium creates an instance of Tank populates it with some animals
+	 * and equips it with a number of accessories
+	 * 
+	 * @return the tank
+	 */
 	public static Tank sampleAquarium() {
 		ReptileFactory rf = new ReptileFactory();
 		FishFactory ff = new FishFactory();
@@ -61,6 +63,7 @@ public class Actions {
 		System.out.println(tank);
 		System.out.print("TOTAL SUM: $");
 		System.out.printf("%.2f\n\n", tm.calculateTotalSum(tank));
+		LOGGER.info("Sample tank created");
 		return tank;
 	}
 
