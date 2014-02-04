@@ -51,7 +51,7 @@ public class ReptileFactory implements AnimalFactory {
 			break;
 		case FROG:
 			animal = new Reptile();
-			animal.setName(reptiles.getName());
+			animal.setName("Frog");
 			animal.setTaxonomy(reptiles.getTaxonomy());
 			animal.setCost(frogCost);
 			break;
