@@ -8,9 +8,8 @@ package com.epam.koryagin.aquarium.item;
 public abstract class Item {
 	private String name; 
 	private String description;
-	private double size;
 	private double cost;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -23,13 +22,7 @@ public abstract class Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public double getSize() {
-		return size;
-	}
-	public void setSize(double size) {
-		this.size = size;
-	}
-	
+		
 	public double getCost() {
 		return cost;
 	}

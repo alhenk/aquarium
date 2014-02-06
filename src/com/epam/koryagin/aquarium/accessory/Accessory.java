@@ -6,16 +6,16 @@ package com.epam.koryagin.aquarium.accessory;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+import com.epam.koryagin.aquarium.item.Item;
+
 /**
  * Accessory for Aquarium Tank
  * @author Koryagin
  * @date 2013.12.12
  * @version 1.0.0
  */
-public class Accessory {
-	private double cost;
-	private String name;
-	private String description;
+public class Accessory extends Item{
+
 
 	/**
 	 * Default constructor
@@ -45,29 +45,7 @@ public class Accessory {
 		this.setCost(cost);
 	}
 	
-	public double getCost() {
-		return cost;
-	}
-
-	public void setCost(double cost) {
-		this.cost = cost;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	
 	
 	@Override
 	public String toString(){

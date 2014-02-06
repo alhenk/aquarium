@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.animal.*;
+import com.epam.koryagin.aquarium.item.Item;
 
 /**
  * Class Tank generalization of Aquarium
@@ -18,11 +19,8 @@ import com.epam.koryagin.aquarium.animal.*;
  * @date 2013.12.09
  * @version 1.0.0
  */
-public class Tank {
-	private String name;
-	private String description;
+public class Tank extends Item{
 	private double volume;
-	private double cost;
 	private List<Animal> inhabitants = new ArrayList<Animal>();
 	private List<Accessory> accessories = new ArrayList<Accessory>();
 
@@ -44,10 +42,10 @@ public class Tank {
 	 */
 	public Tank(String name, String description, double volume, double cost, 
 			ArrayList<Animal> inhabitants, ArrayList<Accessory> accessories){
-		this.name = name;
-		this.description = description;
+		this.setName(name);
+		this.setDescription(description);
+		this.setCost(cost);
 		this.volume = volume;
-		this.cost = cost;
 		this.inhabitants = inhabitants;
 		this.accessories = accessories;
 	}
@@ -76,30 +74,7 @@ public class Tank {
 		accessories.add(accessory);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public double getCost() {
-		return cost;
-	}
-
-	public void setCost(double cost) {
-		this.cost = cost;
-	}
-
+	
 	public double getVolume() {
 		return volume;
 	}

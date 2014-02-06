@@ -18,6 +18,7 @@ import com.epam.koryagin.aquarium.item.Item;
 
 public abstract class Animal extends Item{
 	private String taxonomy;
+	private double size;
 	
 	public String getTaxonomy(){
 		return taxonomy;
@@ -35,5 +36,11 @@ public abstract class Animal extends Item{
 		sb.append(this.getTaxonomy());
 		sb.append(", $").append(formatter.format(this.getCost()));
 		return sb.toString();
+	}
+	public double getSize() {
+		return size;
+	}
+	public void setSize(double size) {
+		this.size = size;
 	}
 }

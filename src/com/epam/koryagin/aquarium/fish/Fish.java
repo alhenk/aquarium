@@ -17,15 +17,14 @@ public class Fish extends Animal {
 	private double aquariumMinVolume;
 	
 	/**
-	 * Default constructor;
+	 * Default constructor
+	 * to be on the safe side.
 	 */
 	public Fish(){
-		super();
+		super(); //just a filler
 	}
-	/**
-	 * 
-	 * @return
-	 */
+	
+	
 	public double getTemperatureMax() {
 		return waterTemperatureMax;
 	}

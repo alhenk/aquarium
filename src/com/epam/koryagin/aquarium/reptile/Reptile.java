@@ -23,6 +23,10 @@ import com.epam.koryagin.aquarium.animal.Animal;
  * @version 1.0.0
  */
 public class Reptile extends Animal {
+	
+	private double humidity ;
+	private double airTemperatureMax;
+	private double airTemperatureMin;
 	/**
 	 * Default constructor
 	 */
@@ -49,5 +53,23 @@ public class Reptile extends Animal {
 		this.setDescription(description);
 		this.setCost(cost);
 		this.setSize(size);
+	}
+	public double getHumidity() {
+		return humidity;
+	}
+	public void setHumidity(double humidity) {
+		this.humidity = humidity;
+	}
+	public double getAirTemperatureMax() {
+		return airTemperatureMax;
+	}
+	public void setAirTemperatureMax(double airTemperatureMax) {
+		this.airTemperatureMax = airTemperatureMax;
+	}
+	public double getAirTemperatureMin() {
+		return airTemperatureMin;
+	}
+	public void setAirTemperatureMin(double airTemperatureMin) {
+		this.airTemperatureMin = airTemperatureMin;
 	}
 }
