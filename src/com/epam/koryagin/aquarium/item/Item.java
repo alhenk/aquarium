@@ -1,5 +1,10 @@
-package com.epam.koryagin.aquarium;
-
+package com.epam.koryagin.aquarium.item;
+/**
+ * The top of subject hierarchy,
+ * superclass for tank, animal and accessory
+ * @author Koryagin
+ *
+ */
 public abstract class Item {
 	private String name; 
 	private String description;

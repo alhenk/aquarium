@@ -3,7 +3,8 @@
  */
 package com.epam.koryagin.aquarium;
 
-import com.epam.koryagin.aquarium.animal.FishType;
+import com.epam.koryagin.aquarium.fish.FishType;
+import com.epam.koryagin.aquarium.item.ItemType;
 
 /**
  * Aquarium CLI application 
@@ -20,6 +21,7 @@ public class Runner {
 		Actions.printAllAvailableItems();
 		ItemType animal = FishType.ANGELFISH;
 		System.out.println(animal.getClass());
+		
 		Actions.runMenu();
 		//
 	}

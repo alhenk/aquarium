@@ -1,4 +1,6 @@
-package com.epam.koryagin.aquarium.animal;
+package com.epam.koryagin.aquarium.fish;
+
+import com.epam.koryagin.aquarium.animal.Animal;
 
 /**
  * Class Fish

@@ -3,7 +3,7 @@ package com.epam.koryagin.aquarium.tank;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.epam.koryagin.aquarium.ItemType;
+import com.epam.koryagin.aquarium.item.ItemType;
 
 /**
  * Variety of tank types.

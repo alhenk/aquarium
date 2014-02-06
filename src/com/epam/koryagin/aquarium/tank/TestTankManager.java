@@ -9,10 +9,10 @@ import org.junit.Test;
 
 import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.accessory.AccessoryType;
-import com.epam.koryagin.aquarium.animal.Fish;
-import com.epam.koryagin.aquarium.animal.FishType;
-import com.epam.koryagin.aquarium.animal.Reptile;
-import com.epam.koryagin.aquarium.animal.ReptileType;
+import com.epam.koryagin.aquarium.fish.Fish;
+import com.epam.koryagin.aquarium.fish.FishType;
+import com.epam.koryagin.aquarium.reptile.Reptile;
+import com.epam.koryagin.aquarium.reptile.ReptileType;
 
 public class TestTankManager{
 	private static Tank tank;

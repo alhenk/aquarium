@@ -6,12 +6,12 @@ import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.accessory.AccessoryManager;
 import com.epam.koryagin.aquarium.accessory.AccessoryType;
 import com.epam.koryagin.aquarium.animal.Animal;
-import com.epam.koryagin.aquarium.animal.FishFactory;
-import com.epam.koryagin.aquarium.animal.FishType;
-import com.epam.koryagin.aquarium.animal.ReptileFactory;
-import com.epam.koryagin.aquarium.animal.ReptileType;
+import com.epam.koryagin.aquarium.fish.FishFactory;
+import com.epam.koryagin.aquarium.fish.FishType;
 import com.epam.koryagin.aquarium.menu.Menu;
 import com.epam.koryagin.aquarium.menu.State;
+import com.epam.koryagin.aquarium.reptile.ReptileFactory;
+import com.epam.koryagin.aquarium.reptile.ReptileType;
 import com.epam.koryagin.aquarium.tank.Tank;
 import com.epam.koryagin.aquarium.tank.TankManager;
 import com.epam.koryagin.aquarium.tank.TankType;
@@ -29,16 +29,17 @@ public class Actions {
 	private static final Logger LOGGER = Logger.getLogger(Actions.class);
 	
 	/**
-	 * Private constructor
+	 * Private constructor because, 
+	 * it is a utility class with only static methods
 	 */
 	private Actions(){
 		super();
 	}
 	
 	/**
-	 * sampleAquarium creates an instance of Tank populates it with some animals
+	 * sampleAquarium creates an instance of Tank,
+	 * populates it with some animals
 	 * and equips it with a number of accessories
-	 * 
 	 * @return the tank
 	 */
 	public static Tank sampleAquarium() {

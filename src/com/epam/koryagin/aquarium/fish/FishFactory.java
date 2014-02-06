@@ -1,6 +1,8 @@
-package com.epam.koryagin.aquarium.animal;
+package com.epam.koryagin.aquarium.fish;
 
-import com.epam.koryagin.aquarium.ItemType;
+import com.epam.koryagin.aquarium.animal.Animal;
+import com.epam.koryagin.aquarium.animal.AnimalFactory;
+import com.epam.koryagin.aquarium.item.ItemType;
 
 /**
  * The factory creates instances of Fish

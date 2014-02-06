@@ -6,7 +6,7 @@ package com.epam.koryagin.aquarium.animal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import com.epam.koryagin.aquarium.Item;
+import com.epam.koryagin.aquarium.item.Item;
 
 /**
  * Super class of aquarium inhabitants

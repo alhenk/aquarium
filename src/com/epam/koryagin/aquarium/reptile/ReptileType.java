@@ -1,9 +1,9 @@
-package com.epam.koryagin.aquarium.animal;
+package com.epam.koryagin.aquarium.reptile;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.epam.koryagin.aquarium.ItemType;
+import com.epam.koryagin.aquarium.item.ItemType;
 
 /**
  * The total number of Reptilia's subclasses 
