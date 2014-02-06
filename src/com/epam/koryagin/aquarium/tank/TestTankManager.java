@@ -61,6 +61,7 @@ public class TestTankManager{
 
 	@Test
 	public void test() {
+		tm = new TankManager();
 		double result = tm.calculateTotalSum(tank);
 		assertEquals("Total must be 139.61",139.61,result,0.005); 
 		//fail("Not yet implemented");
