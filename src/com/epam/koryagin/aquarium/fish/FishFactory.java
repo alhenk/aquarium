@@ -16,7 +16,7 @@ public class FishFactory implements AnimalFactory {
 	// TODO move it to a dedicated test/debug/simulation class 
 	private static final double angelfishCost = generateCost(12.0, 15.0);
 	private static final double bassletCost = generateCost(13.0, 15.0);
-	private static final double batfishCost = generateCost(9.0, 11.0);
+	private static final double tigerbarbCost = generateCost(9.0, 11.0);
 	private static final double boxfishCost = generateCost(5.0, 25.0);
 	private static final double cardinalfishCost = generateCost(12.0, 17.0);
 	private static final double clownfishCost = generateCost(2.0, 4.0);
@@ -47,11 +47,11 @@ public class FishFactory implements AnimalFactory {
 			animal.setTaxonomy(fishes.getTaxonomy());
 			animal.setCost(bassletCost);
 			break;
-		case BATFISH:
+		case TIGER_BARB:
 			animal = new Fish();
 			animal.setName("Batfish");
 			animal.setTaxonomy(fishes.getTaxonomy());
-			animal.setCost(batfishCost);
+			animal.setCost(tigerbarbCost);
 			break;
 		case BOXFISH:
 			animal = new Fish();

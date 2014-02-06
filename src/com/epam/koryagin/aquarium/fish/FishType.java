@@ -18,16 +18,16 @@ import com.epam.koryagin.aquarium.item.ItemType;
 public enum FishType implements ItemType {
 	ANGELFISH(1, "Angelfish", "Class Actinopterygii, Order Perciformes"),
 	BASSLET(2,"Basslet", "Class: Actinopterygii, Order Perciformes"),
-	BOXFISH(3,"Anthia", "Class: Actinopterygii, Order Tetraodontiformes"),
-	BATFISH(4,"Batfish", "Class: Actinopterygii, Order Perciformes"),
+	BOXFISH(3,"Boxfish", "Class: Actinopterygii, Order Tetraodontiformes"),
+	TIGER_BARB(4,"TigerBarb", "Class: Actinopterygii, Order Cypriniformes"),
 	CARDINALFISH(5,"Cardinalfish","Class: Actinopterygii, Order Perciformes"),
 	CLOWNFISH(6,"Clownfish","Class: Actinopterygii, Order Perciformes"),
 	FOXFACE(7,"Foxface","Class: Actinopterygii, Order Perciformes"),
 	GOBY(8,"Goby","Class: Actinopterygii, Order Perciformes"),
 	HOGFISH(9,"Hogfish","Class: Actinopterygii, Order Perciformes"),
-	SEAHORSE(10,"Seahorse","Class: Actinopterygii, Order Perciformes"),
+	SEAHORSE(10,"Seahorse","Class: Actinopterygii, Order Syngnathiformes"),
 	SHARK(11,"Shark","Class: Chondrichthyes, Order Carcharhiniformes"),
-	TRIGGERFISH(12,"Triggerfish","Class: Actinopterygii, Order Perciformes"),
+	TRIGGERFISH(12,"Triggerfish","Class: Actinopterygii, Order Tetraodontiformes"),
 	WRASSE(13,"Wrasse","Class: Actinopterygii, Order Perciformes");
 		
 	private int code;

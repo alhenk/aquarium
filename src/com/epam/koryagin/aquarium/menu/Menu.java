@@ -111,7 +111,7 @@ public class Menu {
 		switch (theItem){
 		case ANGELFISH:
 		case BASSLET:
-		case BATFISH:
+		case TIGER_BARB:
 		case BOXFISH:
 		case CARDINALFISH:
 		case CLOWNFISH:

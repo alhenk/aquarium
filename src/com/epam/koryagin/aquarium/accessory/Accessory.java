@@ -4,10 +4,11 @@
 package com.epam.koryagin.aquarium.accessory;
 
 import java.text.DecimalFormat;
+
 import java.text.NumberFormat;
 
 import com.epam.koryagin.aquarium.item.Item;
-
+	
 /**
  * Accessory for Aquarium Tank
  * @author Koryagin
@@ -16,12 +17,14 @@ import com.epam.koryagin.aquarium.item.Item;
  */
 public class Accessory extends Item{
 
-
+	private AccessoryType type;
+	
 	/**
 	 * Default constructor
+	 * to be on the safe side;
 	 */
 	public Accessory(){
-		super();
+		super(); //just a filler
 	}
 	
 	/**
@@ -56,6 +59,14 @@ public class Accessory extends Item{
 		sb.append(this.getDescription());
 		sb.append(", $").append(formatter.format(this.getCost()));
 		return sb.toString();
+	}
+
+	public AccessoryType getType() {
+		return type;
+	}
+
+	public void setType(AccessoryType type) {
+		this.type = type;
 	}
 	
 }

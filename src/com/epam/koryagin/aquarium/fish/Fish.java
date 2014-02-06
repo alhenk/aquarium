@@ -9,7 +9,18 @@ import com.epam.koryagin.aquarium.animal.Animal;
  * @version 1.0.0
  */
 public class Fish extends Animal {
-	
+	//Minimum Tank Size: 30 gallons
+	//Care Level: Easy
+	//Temperament: Semi-aggressive
+	//Water Conditions: 74-79° F, KH 4-10, pH 6.0-7.0
+	//Max. Size: 3"
+	//Color Form: Black, Orange, White, Yellow
+	//Diet: Omnivore
+	//Compatibility: View Chart
+	//Origin: Farm Raised, USA
+	//Family: Cyprinidae
+	private FishType type;
+
 	private double waterTemperatureMax;
 	private double waterTemperatureMin;
 	private double pHMax;
@@ -64,5 +75,16 @@ public class Fish extends Animal {
 	public void setAquariumVolumeMin(double aquariumVolumeMin) {
 		this.aquariumMinVolume = aquariumVolumeMin;
 	}
+
+
+	public FishType getType() {
+		return type;
+	}
+
+
+	public void setType(FishType type) {
+		this.type = type;
+	}
 		
 }
+

@@ -23,7 +23,7 @@ import com.epam.koryagin.aquarium.animal.Animal;
  * @version 1.0.0
  */
 public class Reptile extends Animal {
-	
+	private ReptileType type;
 	private double humidity ;
 	private double airTemperatureMax;
 	private double airTemperatureMin;
@@ -71,5 +71,11 @@ public class Reptile extends Animal {
 	}
 	public void setAirTemperatureMin(double airTemperatureMin) {
 		this.airTemperatureMin = airTemperatureMin;
+	}
+	public ReptileType getType() {
+		return type;
+	}
+	public void setType(ReptileType type) {
+		this.type = type;
 	}
 }
