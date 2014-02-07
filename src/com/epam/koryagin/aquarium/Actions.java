@@ -29,8 +29,8 @@ public class Actions {
 	private static final Logger LOGGER = Logger.getLogger(Actions.class);
 	
 	/**
-	 * Private constructor because, 
-	 * it is a utility class with only static methods
+	 * Private constructor, 
+	 * utility class with only static methods
 	 */
 	private Actions(){
 		super();

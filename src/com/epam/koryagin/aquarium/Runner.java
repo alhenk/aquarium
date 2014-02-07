@@ -3,8 +3,9 @@
  */
 package com.epam.koryagin.aquarium;
 
-import com.epam.koryagin.aquarium.fish.FishType;
-import com.epam.koryagin.aquarium.item.ItemType;
+//import com.epam.koryagin.aquarium.fish.FishType;
+//import com.epam.koryagin.aquarium.item.ItemType;
+import com.epam.koryagin.aquarium.resource_manager.ResourceManager;
 
 /**
  * Aquarium CLI application 
@@ -17,12 +18,14 @@ import com.epam.koryagin.aquarium.item.ItemType;
 public class Runner {
 
 	public static void main(String[] args) {
-		Actions.sampleAquarium();
-		Actions.printAllAvailableItems();
-		ItemType animal = FishType.ANGELFISH;
-		System.out.println(animal.getClass());
+//		Actions.sampleAquarium();
+//		Actions.printAllAvailableItems();
+//		ItemType animal = FishType.ANGELFISH;
+//		System.out.println(animal.getClass());
 		
-		Actions.runMenu();
+		System.out.println(ResourceManager.fishDao.fetchFishMinPrice());
+		
+		//Actions.runMenu();
 		//
 	}
 }
