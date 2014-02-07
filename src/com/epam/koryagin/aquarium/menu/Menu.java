@@ -8,6 +8,8 @@ import com.epam.koryagin.aquarium.accessory.AccessoryType;
 import com.epam.koryagin.aquarium.fish.FishFactory;
 import com.epam.koryagin.aquarium.fish.FishType;
 import com.epam.koryagin.aquarium.item.ItemType;
+import com.epam.koryagin.aquarium.print.Console;
+import com.epam.koryagin.aquarium.print.PrintBehavior;
 import com.epam.koryagin.aquarium.reptile.ReptileFactory;
 import com.epam.koryagin.aquarium.reptile.ReptileType;
 import com.epam.koryagin.aquarium.tank.Tank;
@@ -15,6 +17,7 @@ import com.epam.koryagin.aquarium.tank.TankManager;
 import com.epam.koryagin.aquarium.tank.TankType;
 
 public class Menu {
+	private static final PrintBehavior OUTPUT = new Console();
 	private State state = State.START;
 	private ReptileFactory rf = new ReptileFactory();
 	private FishFactory ff = new FishFactory();
@@ -79,7 +82,7 @@ public class Menu {
 		}
 		TankType theItem = TankType.select(command);
 		if(theItem == null){
-			System.out.println("Wrong Choise - no such item");
+			OUTPUT.println("Wrong Choise - no such item");
 			return State.INIT_TANK;
 		}
 		switch (theItem){
@@ -104,7 +107,7 @@ public class Menu {
 		}
 		FishType theItem = FishType.select(command);
 		if(theItem == null){
-			System.out.println("Wrong Choise - no such item");
+			OUTPUT.println("Wrong Choise - no such item");
 			return State.EQUIP_AND_POPULATE;
 		}
 
@@ -137,7 +140,7 @@ public class Menu {
 		}
 		ReptileType theItem = ReptileType.select(command);
 		if(theItem == null){
-			System.out.println("Wrong Choise - no such item");
+			OUTPUT.println("Wrong Choise - no such item");
 			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
@@ -168,7 +171,7 @@ public class Menu {
 		}
 		AccessoryType theItem = AccessoryType.select(command);
 		if(theItem == null){
-			System.out.println("Wrong Choise - no such item");
+			OUTPUT.println("Wrong Choise - no such item");
 			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
@@ -196,8 +199,8 @@ public class Menu {
 			sb.append(t.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 EXIT");
-		System.out.println(sb.toString());
-		System.out.print("> ");
+		OUTPUT.println(sb.toString());
+		OUTPUT.print("> ");
 	}
 	
 	public void displayFishMenu(){
@@ -208,8 +211,8 @@ public class Menu {
 			sb.append(f.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 EXIT");
-		System.out.println(sb.toString());
-		System.out.print("> ");
+		OUTPUT.println(sb.toString());
+		OUTPUT.print("> ");
 	}
 	
 	public void displayReptileMenu(){
@@ -220,8 +223,8 @@ public class Menu {
 			sb.append(r.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 EXIT");
-		System.out.println(sb.toString());
-		System.out.print("> ");
+		OUTPUT.println(sb.toString());
+		OUTPUT.print("> ");
 	}
 	public void displayAccessoryMenu(){
 		StringBuilder sb = new StringBuilder();
@@ -231,8 +234,8 @@ public class Menu {
 			sb.append(a.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 EXIT");
-		System.out.println(sb.toString());
-		System.out.print("> ");
+		OUTPUT.println(sb.toString());
+		OUTPUT.print("> ");
 	}
 	
 	public void displayEquipMenu(){
@@ -242,8 +245,8 @@ public class Menu {
 		sb.append("3 SELECT ACCESSORIES\n");
 		sb.append("4 GENERATE REPORT\n");
 		sb.append("0 EXIT");
-		System.out.println(sb.toString());
-		System.out.print("> ");
+		OUTPUT.println(sb.toString());
+		OUTPUT.print("> ");
 	}
 			
 	/**
@@ -264,7 +267,7 @@ public class Menu {
 				tank = tm.createTank((TankType)item);
 			}
 		} else {
-			System.out.println("Wrong Choice - no such item");
+			OUTPUT.println("Wrong Choice - no such item");
 			if (item instanceof TankType){
 				return state = State.INIT_TANK;
 			}
@@ -281,7 +284,7 @@ public class Menu {
 		StringBuilder sb = new StringBuilder();
 		sb.append(tank.toString());
 		sb.append("TOTAL: $").append(formatter.format(tm.calculateTotalSum(tank)));
-		System.out.println(sb.toString());
+		OUTPUT.println(sb.toString());
 		return state;
 	}
 	
@@ -290,7 +293,7 @@ public class Menu {
 	 */
 	public void clean(){
 		for(int i = 0; i < 50; i++){
-			System.out.println();
+			OUTPUT.println();
 		}
 	}
 }

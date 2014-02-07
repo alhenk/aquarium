@@ -3,6 +3,8 @@ package com.epam.koryagin.aquarium.fish;
 import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.animal.AnimalFactory;
 import com.epam.koryagin.aquarium.item.ItemType;
+import com.epam.koryagin.aquarium.print.Console;
+import com.epam.koryagin.aquarium.print.PrintBehavior;
 
 /**
  * The factory creates instances of Fish
@@ -12,6 +14,7 @@ import com.epam.koryagin.aquarium.item.ItemType;
  * @version 1.0.0
  */
 public class FishFactory implements AnimalFactory {
+	private static final PrintBehavior OUTPUT = new Console();
 	// Reptiles random cost constants
 	// TODO move it to a dedicated test/debug/simulation class 
 	private static final double angelfishCost = generateCost(12.0, 15.0);
@@ -114,7 +117,7 @@ public class FishFactory implements AnimalFactory {
 			animal.setCost(wrasseCost);
 			break;
 		default:
-			System.out.println("Wrong Enum Fishes");
+			OUTPUT.println("Wrong Enum Fishes");
 			break;
 		
 		}

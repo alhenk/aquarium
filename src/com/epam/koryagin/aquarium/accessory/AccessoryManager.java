@@ -1,7 +1,11 @@
 package com.epam.koryagin.aquarium.accessory;
 
+import com.epam.koryagin.aquarium.print.Console;
+import com.epam.koryagin.aquarium.print.PrintBehavior;
+
 
 public class AccessoryManager {
+	private static final PrintBehavior OUTPUT = new Console();
 	// Accessories random cost constants
 		// TODO move it to dedicated test/debug/simulation class
 		private static final double algeaCost = generateCost(12.0, 15.0);
@@ -74,7 +78,7 @@ public class AccessoryManager {
 				accessory.setCost(thermometerCost);
 				break;
 			default:
-				System.out.println("Wrong Enum Accessories");
+				OUTPUT.println("Wrong Enum Accessories");
 				break;
 			}
 			return accessory;

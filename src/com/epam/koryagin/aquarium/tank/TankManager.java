@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.animal.Animal;
+import com.epam.koryagin.aquarium.print.Console;
+import com.epam.koryagin.aquarium.print.PrintBehavior;
 
 /**
  * Tank Manager create an instance of Tank, create instances of accessories and
@@ -15,6 +17,7 @@ import com.epam.koryagin.aquarium.animal.Animal;
  * @version 1.0.0
  */
 public class TankManager {
+	private static final PrintBehavior OUTPUT = new Console();
 	// Tanks random cost constants
 	// TODO move it to dedicated test/debug/simulation class
 	private static final double communityTankCost = generateCost(79.90, 114.90);
@@ -81,7 +84,7 @@ public class TankManager {
 			tank.setCost(tropicalAquariumCost);
 			break;
 		default:
-			System.out.println("Wrong Enum Accessories");
+			OUTPUT.println("Wrong Enum Accessories");
 			break;
 		}
 		return tank;

@@ -3,6 +3,8 @@
  */
 package com.epam.koryagin.aquarium;
 
+import com.epam.koryagin.aquarium.print.Console;
+import com.epam.koryagin.aquarium.print.PrintBehavior;
 //import com.epam.koryagin.aquarium.fish.FishType;
 //import com.epam.koryagin.aquarium.item.ItemType;
 import com.epam.koryagin.aquarium.resource_manager.ResourceManager;
@@ -16,16 +18,18 @@ import com.epam.koryagin.aquarium.resource_manager.ResourceManager;
  * release 20140203
  */
 public class Runner {
+	private static final PrintBehavior OUTPUT = new Console();
 
 	public static void main(String[] args) {
 //		Actions.sampleAquarium();
 //		Actions.printAllAvailableItems();
 //		ItemType animal = FishType.ANGELFISH;
-//		System.out.println(animal.getClass());
+//		OUTPUT.println(animal.getClass());
 		
-		System.out.println(ResourceManager.fishDao.fetchFishMaxPrice());
-		
-		//Actions.runMenu();
+		//OUTPUT.println(ResourceManager.fishDao.fetchFishMaxPrice());
+		//OUTPUT.printf("%d",4);
+		Actions.runMenu();
 		//
+	
 	}
 }

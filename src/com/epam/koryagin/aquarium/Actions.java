@@ -10,11 +10,14 @@ import com.epam.koryagin.aquarium.fish.FishFactory;
 import com.epam.koryagin.aquarium.fish.FishType;
 import com.epam.koryagin.aquarium.menu.Menu;
 import com.epam.koryagin.aquarium.menu.State;
+import com.epam.koryagin.aquarium.print.Console;
+import com.epam.koryagin.aquarium.print.PrintBehavior;
 import com.epam.koryagin.aquarium.reptile.ReptileFactory;
 import com.epam.koryagin.aquarium.reptile.ReptileType;
 import com.epam.koryagin.aquarium.tank.Tank;
 import com.epam.koryagin.aquarium.tank.TankManager;
 import com.epam.koryagin.aquarium.tank.TankType;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -27,6 +30,7 @@ import org.apache.log4j.Logger;
  */
 public class Actions {
 	private static final Logger LOGGER = Logger.getLogger(Actions.class);
+	private static final PrintBehavior OUTPUT = new Console();
 	
 	/**
 	 * Private constructor, 
@@ -61,9 +65,10 @@ public class Actions {
 		tank.addAnimal(rf.createAnimal(ReptileType.FROG));
 		tank.addAnimal(rf.createAnimal(ReptileType.TERRAPIN));
 
-		System.out.println(tank);
-		System.out.print("TOTAL SUM: $");
-		System.out.printf("%.2f\n\n", tm.calculateTotalSum(tank));
+		
+		OUTPUT.println(tank);
+		OUTPUT.print("TOTAL SUM: $");
+		OUTPUT.printf("%.2f\n\n", tm.calculateTotalSum(tank));
 		LOGGER.info("Sample tank created");
 		return tank;
 	}
@@ -78,32 +83,32 @@ public class Actions {
 		AccessoryManager am = new AccessoryManager();
 		TankManager tm = new TankManager();
 
-		System.out.println("REPTILES :");
+		OUTPUT.println("REPTILES :");
 		for (ReptileType reptile : ReptileType.values()) {
 			Animal animal = rf.createAnimal(reptile);
-			System.out.println(animal);
+			OUTPUT.println(animal);
 		}
-		System.out.println();
+		OUTPUT.println();
 
-		System.out.println("FISHES :");
+		OUTPUT.println("FISHES :");
 		for (FishType fish : FishType.values()) {
 			Animal animal = ff.createAnimal(fish);
-			System.out.println(animal);
+			OUTPUT.println(animal);
 		}
-		System.out.println();
+		OUTPUT.println();
 
-		System.out.println("TANKS :");
+		OUTPUT.println("TANKS :");
 
 		for (TankType t : TankType.values()) {
 			Tank tank = tm.createTank(t);
-			System.out.println(tank);
+			OUTPUT.println(tank);
 		}
-		System.out.println();
+		OUTPUT.println();
 
-		System.out.println("ACCESSORIES :");
+		OUTPUT.println("ACCESSORIES :");
 		for (AccessoryType a : AccessoryType.values()) {
 			Accessory accessory = am.createAccessory(a);
-			System.out.println(accessory);
+			OUTPUT.println(accessory);
 		}
 	}
 
@@ -112,15 +117,15 @@ public class Actions {
 		int command = 0;
 		State state = State.START;
 		Scanner userInput = new Scanner(System.in);
-		System.out.println();
-		System.out.println("Choose Tank:");
+		OUTPUT.println();
+		OUTPUT.println("Choose Tank:");
 		menu.displayInitTankMenu();
 		try {
 			while (state != State.EXIT) {
 				if (userInput.hasNext()) {
 					if (!userInput.hasNextInt()){
 						userInput.next();
-						System.out.println("Please enter a digit.");
+						OUTPUT.println("Please enter a digit.");
 						continue;
 					}
 					command = userInput.nextInt();
@@ -150,9 +155,9 @@ public class Actions {
 					}
 				}
 			}
-			System.out.println("BYE");
+			OUTPUT.println("BYE");
 		} catch (Exception e) {
-			System.out.println(e);
+			OUTPUT.println(e);
 		} finally {
 			userInput.close();
 		}
