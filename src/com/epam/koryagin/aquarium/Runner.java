@@ -23,7 +23,7 @@ public class Runner {
 //		ItemType animal = FishType.ANGELFISH;
 //		System.out.println(animal.getClass());
 		
-		System.out.println(ResourceManager.fishDao.fetchFishMinPrice());
+		System.out.println(ResourceManager.fishDao.fetchFishMaxPrice());
 		
 		//Actions.runMenu();
 		//
