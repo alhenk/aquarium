@@ -10,7 +10,6 @@ public final class ResourceManager {
 	
 	public static FishDAO fishDao = new FishPropertiesDAO("com.epam.koryagin.aquarium.resources.fish");
 	
-	
 	/**
 	 * Default constructor
 	 */

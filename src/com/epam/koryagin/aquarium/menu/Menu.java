@@ -12,12 +12,15 @@ import com.epam.koryagin.aquarium.print.Console;
 import com.epam.koryagin.aquarium.print.PrintBehavior;
 import com.epam.koryagin.aquarium.reptile.ReptileFactory;
 import com.epam.koryagin.aquarium.reptile.ReptileType;
+import com.epam.koryagin.aquarium.resource_manager.Local;
+import com.epam.koryagin.aquarium.resource_manager.LocalType;
 import com.epam.koryagin.aquarium.tank.Tank;
 import com.epam.koryagin.aquarium.tank.TankManager;
 import com.epam.koryagin.aquarium.tank.TankType;
 
 public class Menu {
 	private static final PrintBehavior OUTPUT = new Console();
+	private Local local = new Local(LocalType.CYR);
 	private State state = State.START;
 	private ReptileFactory rf = new ReptileFactory();
 	private FishFactory ff = new FishFactory();
@@ -82,7 +85,8 @@ public class Menu {
 		}
 		TankType theItem = TankType.select(command);
 		if(theItem == null){
-			OUTPUT.println("Wrong Choise - no such item");
+			OUTPUT.println(local.getString("message.wrongChoice"));
+			//OUTPUT.println("Wrong Choice - no such item");
 			return State.INIT_TANK;
 		}
 		switch (theItem){
@@ -107,7 +111,8 @@ public class Menu {
 		}
 		FishType theItem = FishType.select(command);
 		if(theItem == null){
-			OUTPUT.println("Wrong Choise - no such item");
+			OUTPUT.println(local.getString("message.wrongChoice"));
+			//OUTPUT.println("Wrong Choice - no such item");
 			return State.EQUIP_AND_POPULATE;
 		}
 
@@ -140,7 +145,8 @@ public class Menu {
 		}
 		ReptileType theItem = ReptileType.select(command);
 		if(theItem == null){
-			OUTPUT.println("Wrong Choise - no such item");
+			OUTPUT.println(local.getString("message.wrongChoice"));
+			//OUTPUT.println("Wrong Choice - no such item");
 			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
@@ -171,7 +177,8 @@ public class Menu {
 		}
 		AccessoryType theItem = AccessoryType.select(command);
 		if(theItem == null){
-			OUTPUT.println("Wrong Choise - no such item");
+			OUTPUT.println(local.getString("message.wrongChoice"));
+			//OUTPUT.println("Wrong Choice - no such item");
 			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){

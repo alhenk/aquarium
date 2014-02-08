@@ -3,11 +3,11 @@
  */
 package com.epam.koryagin.aquarium;
 
-import com.epam.koryagin.aquarium.print.Console;
-import com.epam.koryagin.aquarium.print.PrintBehavior;
+//import com.epam.koryagin.aquarium.print.Console;
+//import com.epam.koryagin.aquarium.print.PrintBehavior;
 //import com.epam.koryagin.aquarium.fish.FishType;
 //import com.epam.koryagin.aquarium.item.ItemType;
-import com.epam.koryagin.aquarium.resource_manager.ResourceManager;
+//import com.epam.koryagin.aquarium.resource_manager.ResourceManager;
 
 /**
  * Aquarium CLI application 
@@ -18,7 +18,7 @@ import com.epam.koryagin.aquarium.resource_manager.ResourceManager;
  * release 20140203
  */
 public class Runner {
-	private static final PrintBehavior OUTPUT = new Console();
+	//private static final PrintBehavior OUTPUT = new Console();
 
 	public static void main(String[] args) {
 //		Actions.sampleAquarium();
@@ -29,7 +29,6 @@ public class Runner {
 		//OUTPUT.println(ResourceManager.fishDao.fetchFishMaxPrice());
 		//OUTPUT.printf("%d",4);
 		Actions.runMenu();
-		//
 	
 	}
 }
