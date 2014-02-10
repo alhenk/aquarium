@@ -1,6 +1,7 @@
 package com.epam.koryagin.aquarium.fish;
 
 import com.epam.koryagin.aquarium.animal.Animal;
+import com.epam.koryagin.aquarium.item.Item;
 
 /**
  * Class Fish
@@ -84,6 +85,12 @@ public class Fish extends Animal {
 
 	public void setType(FishType type) {
 		this.type = type;
+	}
+
+
+	@Override
+	public int compareTo(Item o) {
+		return this.getName().compareTo(o.getName());
 	}
 		
 }

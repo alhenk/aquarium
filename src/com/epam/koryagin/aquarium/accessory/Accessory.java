@@ -68,5 +68,10 @@ public class Accessory extends Item{
 	public void setType(AccessoryType type) {
 		this.type = type;
 	}
+
+	@Override
+	public int compareTo(Item o) {
+		return this.getName().compareTo(o.getName());
+	}
 	
 }

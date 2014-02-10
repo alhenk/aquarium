@@ -20,7 +20,7 @@ import com.epam.koryagin.aquarium.tank.TankType;
 
 public class Menu {
 	private static final PrintBehavior OUTPUT = new Console();
-	private Local local = new Local(LocalType.EN);
+	private Local local = new Local(LocalType.CYR);
 	private State state = State.START;
 	private ReptileFactory rf = new ReptileFactory();
 	private FishFactory ff = new FishFactory();
@@ -86,7 +86,7 @@ public class Menu {
 		TankType theItem = TankType.select(command);
 		if(theItem == null){
 			//OUTPUT.println("Wrong Choice - no such item");
-			OUTPUT.println(local.getString("message.wrongChoice"));
+			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.INIT_TANK;
 		}
 		switch (theItem){
@@ -112,7 +112,7 @@ public class Menu {
 		FishType theItem = FishType.select(command);
 		if(theItem == null){
 			//OUTPUT.println("Wrong Choice - no such item");
-			OUTPUT.println(local.getString("message.wrongChoice"));
+			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.EQUIP_AND_POPULATE;
 		}
 
@@ -146,7 +146,7 @@ public class Menu {
 		ReptileType theItem = ReptileType.select(command);
 		if(theItem == null){
 			//OUTPUT.println("Wrong Choice - no such item");	
-			OUTPUT.println(local.getString("message.wrongChoice"));
+			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
@@ -178,7 +178,7 @@ public class Menu {
 		AccessoryType theItem = AccessoryType.select(command);
 		if(theItem == null){
 			//OUTPUT.println("Wrong Choice - no such item");
-			OUTPUT.println(local.getString("message.wrongChoice"));
+			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
@@ -206,7 +206,7 @@ public class Menu {
 			sb.append(t.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");
-		sb.append(local.getString("message.exit"));
+		sb.append(local.getString("message.menu.exit"));
 		OUTPUT.println(sb.toString());
 		OUTPUT.print("> ");
 	}
@@ -219,7 +219,7 @@ public class Menu {
 			sb.append(f.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");
-		sb.append(local.getString("message.exit"));
+		sb.append(local.getString("message.menu.exit"));
 		OUTPUT.println(sb.toString());
 		OUTPUT.print("> ");
 	}
@@ -232,7 +232,7 @@ public class Menu {
 			sb.append(r.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");
-		sb.append(local.getString("message.exit"));
+		sb.append(local.getString("message.menu.exit"));
 		OUTPUT.println(sb.toString());
 		OUTPUT.print("> ");
 	}
@@ -244,19 +244,23 @@ public class Menu {
 			sb.append(a.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");
-		sb.append(local.getString("message.exit"));
+		sb.append(local.getString("message.menu.exit"));
 		OUTPUT.println(sb.toString());
 		OUTPUT.print("> ");
 	}
 	
 	public void displayEquipMenu(){
 		StringBuilder sb = new StringBuilder();
-		sb.append("\n1 SELECT FISH\n"); 
-		sb.append("2 SELECT REPTILE\n");
-		sb.append("3 SELECT ACCESSORIES\n");
-		sb.append("4 GENERATE REPORT\n");
+		sb.append("\n1 ");
+		sb.append(local.getString("message.menu.selectFish")).append("\n"); 
+		sb.append("2 ");
+		sb.append(local.getString("message.menu.selectReptile")).append("\n");
+		sb.append("3 ");
+		sb.append(local.getString("message.menu.selectAccessory")).append("\n");
+		sb.append("4 ");
+		sb.append(local.getString("message.menu.generateReport")).append("\n");
 		sb.append("0 ");
-		sb.append(local.getString("message.exit"));
+		sb.append(local.getString("message.menu.exit"));
 		OUTPUT.println(sb.toString());
 		OUTPUT.print("> ");
 	}

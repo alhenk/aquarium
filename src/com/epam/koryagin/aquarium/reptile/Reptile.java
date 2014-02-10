@@ -6,6 +6,7 @@ package com.epam.koryagin.aquarium.reptile;
 import java.math.BigDecimal;
 
 import com.epam.koryagin.aquarium.animal.Animal;
+import com.epam.koryagin.aquarium.item.Item;
 
 /**
  * Class Reptile includes:
@@ -79,5 +80,9 @@ public class Reptile extends Animal {
 	}
 	public void setType(ReptileType type) {
 		this.type = type;
+	}
+	@Override
+	public int compareTo(Item o) {
+		return this.getName().compareTo(o.getName());
 	}
 }

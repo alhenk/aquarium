@@ -119,4 +119,9 @@ public class Tank extends Item{
 		this.type = type;
 	}
 
+	@Override
+	public int compareTo(Item o) {
+		return this.getName().compareTo(o.getName());
+	}
+
 }

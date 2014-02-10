@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * @author Koryagin
  *
  */
-public abstract class Item {
+public abstract class Item implements Comparable<Item> {
 	private String name;
 	private int id;
 	private String description;

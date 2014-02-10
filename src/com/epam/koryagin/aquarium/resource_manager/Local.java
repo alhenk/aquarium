@@ -1,5 +1,6 @@
 package com.epam.koryagin.aquarium.resource_manager;
 
+import java.util.Enumeration;
 import java.util.ResourceBundle;
 
 public class Local {
@@ -12,6 +13,9 @@ public class Local {
 	}
 	public String getString(String key){
 		return this.resources.getString(key);
+	}
+	public Enumeration<String> getKeys(){
+		return this.resources.getKeys();
 	}
 	public Local(LocalType localType) {
 		super();
