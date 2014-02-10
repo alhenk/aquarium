@@ -1,5 +1,6 @@
 package com.epam.koryagin.aquarium.tank;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.epam.koryagin.aquarium.accessory.Accessory;
@@ -10,7 +11,7 @@ import com.epam.koryagin.aquarium.print.PrintBehavior;
 /**
  * Tank Manager create an instance of Tank, create instances of accessories and
  * add them in a corresponded list of the tank properties. TM populate (add)
- * animals in the tank and calculate the total cost of the set
+ * animals in the tank and calculate the total price of the set
  * 
  * @author Koryagin
  * @date 2013.12.12
@@ -18,15 +19,15 @@ import com.epam.koryagin.aquarium.print.PrintBehavior;
  */
 public class TankManager {
 	private static final PrintBehavior OUTPUT = new Console();
-	// Tanks random cost constants
+	// Tanks random price constants
 	// TODO move it to dedicated test/debug/simulation class
-	private static final double communityTankCost = generateCost(79.90, 114.90);
-	private static final double speciesTankCost = generateCost(199.0, 249.90);
-	private static final double terrariumCost = generateCost(169.90, 209.90);
-	private static final double goldfishBowlCost = generateCost(169.90, 209.90);
-	private static final double sharkPondCost = generateCost(10000.0, 25000.0);
-	private static final double tropicalAquariumCost = 
-												generateCost(245.61,	532.14);
+	private static final BigDecimal communityTankPrice = generatePrice(new BigDecimal(79.90), new BigDecimal(114.90));
+	private static final BigDecimal speciesTankPrice = generatePrice(new BigDecimal(199.0), new BigDecimal(249.90));
+	private static final BigDecimal terrariumPrice = generatePrice(new BigDecimal(169.90), new BigDecimal(209.90));
+	private static final BigDecimal goldfishBowlPrice = generatePrice(new BigDecimal(169.90), new BigDecimal(209.90));
+	private static final BigDecimal sharkPondPrice = generatePrice(new BigDecimal(10000.0), new BigDecimal(25000.0));
+	private static final BigDecimal tropicalAquariumPrice = 
+												generatePrice(new BigDecimal(245.61),	new BigDecimal(532.14));
 
 	//private Accessory accessory;
 	private Tank tank;
@@ -46,42 +47,42 @@ public class TankManager {
 			tank.setName("Community tank");
 			tank.setDescription(TankType.COMMUNITY_TANK.getDescription());
 			tank.setVolume(30.0);
-			tank.setCost(communityTankCost);
+			tank.setPrice(communityTankPrice);
 			break;
 		case TERRARIUM:
 			tank = new Tank();
 			tank.setName("Terrarium");
 			tank.setDescription(TankType.TERRARIUM.getDescription());
 			tank.setVolume(100.0);
-			tank.setCost(terrariumCost);
+			tank.setPrice(terrariumPrice);
 			break;
 		case GOLDFISH_BOWL:
 			tank = new Tank();
 			tank.setName("Goldfish bowl");
 			tank.setDescription(TankType.GOLDFISH_BOWL.getDescription());
 			tank.setVolume(10.0);
-			tank.setCost(goldfishBowlCost);
+			tank.setPrice(goldfishBowlPrice);
 			break;
 		case SHARK_POND:
 			tank = new Tank();
 			tank.setName("Shark pond");
 			tank.setDescription(TankType.SHARK_POND.getDescription());
 			tank.setVolume(10000.0);
-			tank.setCost(sharkPondCost);
+			tank.setPrice(sharkPondPrice);
 			break;
 		case SPECIES_TANK:
 			tank = new Tank();
 			tank.setName("Species tank");
 			tank.setDescription(TankType.SPECIES_TANK.getDescription());
 			tank.setVolume(10.0);
-			tank.setCost(speciesTankCost);
+			tank.setPrice(speciesTankPrice);
 			break;
 		case TROPICAL_AQUARIUM:
 			tank = new Tank();
 			tank.setName("Tropical aquarium");
 			tank.setDescription(TankType.TROPICAL_AQUARIUM.getDescription());
 			tank.setVolume(10.0);
-			tank.setCost(tropicalAquariumCost);
+			tank.setPrice(tropicalAquariumPrice);
 			break;
 		default:
 			OUTPUT.println("Wrong Enum Accessories");
@@ -91,46 +92,42 @@ public class TankManager {
 	}
 
 	/**
-	 * calculateTotalSum returns the tank cost including the cost of all
+	 * calculateTotalSum returns the tank price including the price of all
 	 * inhabitants and accessories.
-	 * 
-	 * @param tank
-	 *            - the instance of Tank to be calculated
-	 * @return total cost
+	 * @param tank - the instance of Tank to be calculated
+	 * @return total price
 	 */
-	public double calculateTotalSum(Tank tank) {
+	public BigDecimal calculateTotalSum(Tank tank) {
 		if (tank == null) {
-			return 0;
+			return new BigDecimal(0);
 		}
-		double total = tank.getCost();
+		BigDecimal total = BigDecimal.ZERO;
+		total = total.add(tank.getPrice());
 		List<Animal> inhabitants = tank.getInhabitants();
 		List<Accessory> accessories = tank.getAccessories();
 		if (!inhabitants.isEmpty()) {
 			for (Animal animal : inhabitants) {
-				total += animal.getCost();
+				total = total.add(animal.getPrice());
 			}
 		}
 		if (!accessories.isEmpty()) {
 			for (Accessory accessory : accessories) {
-				total += accessory.getCost();
+				total = total.add(accessory.getPrice());
 			}
 		}
-		return total;
+		return (BigDecimal) total;
 	}
 
 	/**
-	 * Random cost generator 
+	 * Random price generator 
 	 * TODO move it to a dedicated test/debug/simulation
 	 * class
-	 * 
 	 * @note IT VIOLATES THE DRY PRINCIPLE
-	 * @param min
-	 *            cost
-	 * @param max
-	 *            cost
-	 * @return random cost value
+	 * @param min price
+	 * @param max price
+	 * @return random price value
 	 */
-	public static double generateCost(double min, double max) {
-		return min + Math.random() * (max - min);
+	public static BigDecimal generatePrice(BigDecimal min, BigDecimal max){
+		return (max.subtract(min)).multiply(new BigDecimal(Math.random())).add(min);
 	}
 }

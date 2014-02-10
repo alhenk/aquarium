@@ -3,8 +3,8 @@
  */
 package com.epam.koryagin.aquarium.accessory;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
-
 import java.text.NumberFormat;
 
 import com.epam.koryagin.aquarium.item.Item;
@@ -42,10 +42,10 @@ public class Accessory extends Item{
 	 * @param cost - market price (ebay)
 	 */
 	public Accessory(String name,  String description, 
-					double cost){
+			BigDecimal price){
 		this.setName(name);
 		this.setDescription(description);
-		this.setCost(cost);
+		this.setPrice(price);
 	}
 	
 	
@@ -57,7 +57,7 @@ public class Accessory extends Item{
 		sb.append(this.getName().toUpperCase());
 		sb.append(":\t");
 		sb.append(this.getDescription());
-		sb.append(", $").append(formatter.format(this.getCost()));
+		sb.append(", $").append(formatter.format(this.getPrice()));
 		return sb.toString();
 	}
 

@@ -3,6 +3,8 @@
  */
 package com.epam.koryagin.aquarium.reptile;
 
+import java.math.BigDecimal;
+
 import com.epam.koryagin.aquarium.animal.Animal;
 
 /**
@@ -48,10 +50,10 @@ public class Reptile extends Animal {
 	 * @param size - length 
 	 */
 	public Reptile(String name, String taxonomy, String description, 
-					double cost, double size){
+			BigDecimal price, double size){
 		this.setName(name);
 		this.setDescription(description);
-		this.setCost(cost);
+		this.setPrice(price);
 		this.setSize(size);
 	}
 	public double getHumidity() {

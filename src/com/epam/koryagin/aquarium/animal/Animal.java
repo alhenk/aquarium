@@ -10,7 +10,8 @@ import com.epam.koryagin.aquarium.item.Item;
 
 /**
  * Super class of aquarium inhabitants
- *  
+ * taxonomy - scientific classification
+ * sizeMax  - maximum size (length)
  * @author Koryagin
  * @date 2013.12.09
  * @version 1.0.0
@@ -18,7 +19,8 @@ import com.epam.koryagin.aquarium.item.Item;
 
 public abstract class Animal extends Item{
 	private String taxonomy;
-	private double size;
+	private double sizeMax;
+	private double tankVolumeMin;
 	
 	public String getTaxonomy(){
 		return taxonomy;
@@ -34,13 +36,19 @@ public abstract class Animal extends Item{
 		sb.append(this.getName().toUpperCase());
 		sb.append(":\t");
 		sb.append(this.getTaxonomy());
-		sb.append(", $").append(formatter.format(this.getCost()));
+		sb.append(", $").append(formatter.format(this.getPrice()));
 		return sb.toString();
 	}
 	public double getSize() {
-		return size;
+		return sizeMax;
 	}
 	public void setSize(double size) {
-		this.size = size;
+		this.sizeMax = size;
+	}
+	public double getTankVolumeMin() {
+		return tankVolumeMin;
+	}
+	public void setTankVolumeMin(double tankVolumeMin) {
+		this.tankVolumeMin = tankVolumeMin;
 	}
 }

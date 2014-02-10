@@ -3,6 +3,8 @@
  */
 package com.epam.koryagin.aquarium.reptile;
 
+import java.math.BigDecimal;
+
 import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.animal.AnimalFactory;
 import com.epam.koryagin.aquarium.item.ItemType;
@@ -18,19 +20,19 @@ import com.epam.koryagin.aquarium.print.PrintBehavior;
  */
 public class ReptileFactory implements AnimalFactory {
 	private static final PrintBehavior OUTPUT = new Console();
-	// Reptiles random cost constants
-	private static final double alligatorCost = generateCost(500.0, 1500.0);
-	private static final double caimanCost = generateCost(300.0, 800.0);
-	private static final double crocodileCost = generateCost(420.0, 1750.0);
-	private static final double frogCost = generateCost(25.0, 26.0);
-	private static final double gharialCost = generateCost(630.0, 2100.0);
-	private static final double lizardCost = generateCost(500.0, 1500.0);
-	private static final double salamanderCost = generateCost(58.0, 480.0);
-	private static final double snakeCost = generateCost(20.0, 3500.0);
-	private static final double tautaraCost = generateCost(6.0, 90.0);
-	private static final double terrapinCost = generateCost(240.0, 380.0);
-	private static final double tortoiseCost = generateCost(678.0, 852.0);
-	private static final double turtleCost = generateCost(600.0, 3000.0);
+	// Reptiles random price constants
+	private static final BigDecimal alligatorPrice = generatePrice(new BigDecimal(500.0), new BigDecimal(1500.0));
+	private static final BigDecimal caimanPrice = generatePrice(new BigDecimal(300.0), new BigDecimal(800.0));
+	private static final BigDecimal crocodilePrice = generatePrice(new BigDecimal(420.0), new BigDecimal(1750.0));
+	private static final BigDecimal frogPrice = generatePrice(new BigDecimal(25.0), new BigDecimal(26.0));
+	private static final BigDecimal gharialPrice = generatePrice(new BigDecimal(630.0), new BigDecimal(2100.0));
+	private static final BigDecimal lizardPrice = generatePrice(new BigDecimal(500.0), new BigDecimal(1500.0));
+	private static final BigDecimal salamanderPrice = generatePrice(new BigDecimal(58.0), new BigDecimal(480.0));
+	private static final BigDecimal snakePrice = generatePrice(new BigDecimal(20.0), new BigDecimal(3500.0));
+	private static final BigDecimal tautaraPrice = generatePrice(new BigDecimal(6.0), new BigDecimal(90.0));
+	private static final BigDecimal terrapinPrice = generatePrice(new BigDecimal(240.0), new BigDecimal(380.0));
+	private static final BigDecimal tortoisePrice = generatePrice(new BigDecimal(678.0), new BigDecimal(852.0));
+	private static final BigDecimal turtlePrice = generatePrice(new BigDecimal(600.0), new BigDecimal(3000.0));
 
 	Animal animal;
 	public Animal createAnimal(ItemType pet){
@@ -40,76 +42,76 @@ public class ReptileFactory implements AnimalFactory {
 			animal = new Reptile();
 			animal.setName("Alligator");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(alligatorCost);
+			animal.setPrice(alligatorPrice);
 			break;
 		case CAIMAN:
 			animal = new Reptile();
 			animal.setName("Caiman");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(caimanCost);
+			animal.setPrice(caimanPrice);
 			break;
 		case CROCODILE:
 			animal = new Reptile();
 			animal.setName("Crocodile");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(crocodileCost);
+			animal.setPrice(crocodilePrice);
 			break;
 		case FROG:
 			animal = new Reptile();
 			animal.setName("Frog");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(frogCost);
+			animal.setPrice(frogPrice);
 			break;
 		case GHARIAL:
 			animal = new Reptile();
 			animal.setName("Gharial");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(gharialCost);
+			animal.setPrice(gharialPrice);
 			break;
 		case LIZARD:
 			animal = new Reptile();
 			animal.setName("Lizard");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(lizardCost);
+			animal.setPrice(lizardPrice);
 			break;
 		case SALAMANDER:
 			animal = new Reptile();
 			animal.setName("Salamander");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(salamanderCost);
+			animal.setPrice(salamanderPrice);
 			break;
 		case SNAKE:
 			animal = new Reptile();
 			animal.setName("Snake");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(snakeCost);
+			animal.setPrice(snakePrice);
 			break;
 		case TAUTARA:
 			animal = new Reptile();
 			animal.setName("Tautara");
 			animal.setTaxonomy(reptiles.getTaxonomy());
-			animal.setCost(tautaraCost);
+			animal.setPrice(tautaraPrice);
 			break;
 		case TERRAPIN:
 			animal = new Reptile();
 			animal.setName("Terrapin");
 			animal.setTaxonomy(reptiles.getTaxonomy());
 			animal.setDescription("Fresh or brackish water turtle");
-			animal.setCost(terrapinCost);
+			animal.setPrice(terrapinPrice);
 			break;
 		case TORTOISE:
 			animal = new Reptile();
 			animal.setName("Tortoise");
 			animal.setTaxonomy(reptiles.getTaxonomy());
 			animal.setDescription("Land turtle");
-			animal.setCost(tortoiseCost);
+			animal.setPrice(tortoisePrice);
 			break;
 		case TURTLE:
 			animal = new Reptile();
 			animal.setName("Turtle");
 			animal.setTaxonomy(reptiles.getTaxonomy());
 			animal.setDescription("Seawater turtle");
-			animal.setCost(turtleCost);
+			animal.setPrice(turtlePrice);
 			break;
 		default:
 			OUTPUT.println("Wrong Enum Reptiles");
@@ -119,14 +121,14 @@ public class ReptileFactory implements AnimalFactory {
 	}
 	
 	/**
-	 * Random cost generator
+	 * Random price generator
 	 * TODO move it to a dedicated test/debug/simulation class 
 	 * @note IT VIOLATES THE DRY PRINCIPLE
-	 * @param min cost
-	 * @param max cost
-	 * @return random cost value
+	 * @param min price
+	 * @param max price
+	 * @return random price value
 	 */
-	public static double generateCost(double min, double max){
-		return min + Math.random()*(max-min);
+	public static BigDecimal generatePrice(BigDecimal min, BigDecimal max){
+		return (max.subtract(min)).multiply(new BigDecimal(Math.random())).add(min);
 	}
 }

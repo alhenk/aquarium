@@ -1,4 +1,7 @@
 package com.epam.koryagin.aquarium.item;
+
+import java.math.BigDecimal;
+
 /**
  * The top of subject hierarchy,
  * superclass for tank, animal and accessory
@@ -6,9 +9,10 @@ package com.epam.koryagin.aquarium.item;
  *
  */
 public abstract class Item {
-	private String name; 
+	private String name;
+	private int id;
 	private String description;
-	private double cost;
+	private BigDecimal price;
 
 	public String getName() {
 		return name;
@@ -23,11 +27,17 @@ public abstract class Item {
 		this.description = description;
 	}
 		
-	public double getCost() {
-		return cost;
+	public BigDecimal getPrice() {
+		return price;
 	}
-	public void setCost(double cost) {
-		this.cost = cost;
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

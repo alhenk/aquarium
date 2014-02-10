@@ -3,6 +3,7 @@
  */
 package com.epam.koryagin.aquarium.tank;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -37,15 +38,15 @@ public class Tank extends Item{
 	 * @param name - tank item
 	 * @param description - short technical specification 
 	 * @param volume - tank volume
-	 * @param cost - market price (ebay)
+	 * @param price - market price (ebay)
 	 * @param inhabitants - list of animals that live in the tank 
 	 * @param accessories - list of tank accessories
 	 */
-	public Tank(String name, String description, double volume, double cost, 
+	public Tank(String name, String description, double volume, BigDecimal price, 
 			ArrayList<Animal> inhabitants, ArrayList<Accessory> accessories){
 		this.setName(name);
 		this.setDescription(description);
-		this.setCost(cost);
+		this.setPrice(price);
 		this.volume = volume;
 		this.inhabitants = inhabitants;
 		this.accessories = accessories;
@@ -91,7 +92,7 @@ public class Tank extends Item{
 		sb.append(this.getName().toUpperCase());
 		sb.append(" : ");
 		sb.append(this.getDescription());
-		sb.append(", $").append(formatter.format(this.getCost()));
+		sb.append(", $").append(formatter.format(this.getPrice()));
 		if (!inhabitants.isEmpty()) {
 			sb.append("\n");
 			sb.append("INHABITANTS : ").append("\n");

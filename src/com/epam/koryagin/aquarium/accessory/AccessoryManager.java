@@ -1,21 +1,23 @@
 package com.epam.koryagin.aquarium.accessory;
 
+import java.math.BigDecimal;
+
 import com.epam.koryagin.aquarium.print.Console;
 import com.epam.koryagin.aquarium.print.PrintBehavior;
 
 
 public class AccessoryManager {
 	private static final PrintBehavior OUTPUT = new Console();
-	// Accessories random cost constants
+	// Accessories random price constants
 		// TODO move it to dedicated test/debug/simulation class
-		private static final double algeaCost = generateCost(12.0, 15.0);
-		private static final double filterCost = generateCost(44.99, 66.45);
-		private static final double heaterCost = generateCost(7.98, 27.99);
-		private static final double lampCost = generateCost(53.95, 132.85);
-		private static final double peblesCost = generateCost(5.50, 31.9);
-		private static final double pumpCost = generateCost(49.98, 66.45);
-		private static final double sandCost = generateCost(4.99, 17.99);
-		private static final double thermometerCost = generateCost(4.27, 8.85);
+		private static final BigDecimal algeaPrice = generatePrice(new BigDecimal(12.0), new BigDecimal(15.0));
+		private static final BigDecimal filterPrice = generatePrice(new BigDecimal(44.99), new BigDecimal(66.45));
+		private static final BigDecimal heaterPrice = generatePrice(new BigDecimal(7.98), new BigDecimal(27.99));
+		private static final BigDecimal lampPrice = generatePrice(new BigDecimal(53.95), new BigDecimal(132.85));
+		private static final BigDecimal peblesPrice = generatePrice(new BigDecimal(5.50), new BigDecimal(31.9));
+		private static final BigDecimal pumpPrice = generatePrice(new BigDecimal(49.98), new BigDecimal(66.45));
+		private static final BigDecimal sandPrice = generatePrice(new BigDecimal(4.99), new BigDecimal(17.99));
+		private static final BigDecimal thermometerPrice = generatePrice(new BigDecimal(4.27), new BigDecimal(8.85));
 		
 		private Accessory accessory;
 		
@@ -33,49 +35,49 @@ public class AccessoryManager {
 				accessory = new Accessory();
 				accessory.setName("Algea");
 				accessory.setDescription(AccessoryType.ALGEA.getDescription());
-				accessory.setCost(algeaCost);
+				accessory.setPrice(algeaPrice);
 				break;
 			case FILTER:
 				accessory = new Accessory();
 				accessory.setName("Filter");
 				accessory.setDescription(AccessoryType.FILTER.getDescription());
-				accessory.setCost(filterCost);
+				accessory.setPrice(filterPrice);
 				break;
 			case HEATER:
 				accessory = new Accessory();
 				accessory.setName("Heater");
 				accessory.setDescription(AccessoryType.HEATER.getDescription());
-				accessory.setCost(heaterCost);
+				accessory.setPrice(heaterPrice);
 				break;
 			case LAMP:
 				accessory = new Accessory();
 				accessory.setName("Lamp");
 				accessory.setDescription(AccessoryType.LAMP.getDescription());
-				accessory.setCost(lampCost);
+				accessory.setPrice(lampPrice);
 				break;
 			case PEBLES:
 				accessory = new Accessory();
 				accessory.setName("Pebles");
 				accessory.setDescription(AccessoryType.PEBLES.getDescription());
-				accessory.setCost(peblesCost);
+				accessory.setPrice(peblesPrice);
 				break;
 			case PUMP:
 				accessory = new Accessory();
 				accessory.setName("Pump");
 				accessory.setDescription(AccessoryType.PUMP.getDescription());
-				accessory.setCost(pumpCost);
+				accessory.setPrice(pumpPrice);
 				break;
 			case SAND:
 				accessory = new Accessory();
 				accessory.setName("Sand");
 				accessory.setDescription(AccessoryType.SAND.getDescription());
-				accessory.setCost(sandCost);
+				accessory.setPrice(sandPrice);
 				break;
 			case THERMOMETER:
 				accessory = new Accessory();
 				accessory.setName("Thermometer");
 				accessory.setDescription(AccessoryType.THERMOMETER.getDescription());
-				accessory.setCost(thermometerCost);
+				accessory.setPrice(thermometerPrice);
 				break;
 			default:
 				OUTPUT.println("Wrong Enum Accessories");
@@ -87,18 +89,15 @@ public class AccessoryManager {
 		
 		
 		/**
-		 * Random cost generator 
+		 * Random price generator 
 		 * TODO move it to a dedicated test/debug/simulation
 		 * class
-		 * 
 		 * @note IT VIOLATES THE DRY PRINCIPLE
-		 * @param min
-		 *            cost
-		 * @param max
-		 *            cost
-		 * @return random cost value
+		 * @param min price
+		 * @param max price
+		 * @return random price value
 		 */
-		public static double generateCost(double min, double max) {
-			return min + Math.random() * (max - min);
+		public static BigDecimal generatePrice(BigDecimal min, BigDecimal max){
+			return (max.subtract(min)).multiply(new BigDecimal(Math.random())).add(min);
 		}
 }

@@ -1,6 +1,9 @@
 package com.epam.koryagin.aquarium.tank;
 
 import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -26,22 +29,22 @@ public class TestTankManager{
 		tank.setName("Community tank");
 		tank.setDescription(TankType.COMMUNITY_TANK.getDescription());
 		tank.setVolume(30.0);
-		tank.setCost(123.5);
+		tank.setPrice(new BigDecimal(123.5));
 		
 		accessory = new Accessory();
 		accessory.setName("Algea");
 		accessory.setDescription(AccessoryType.ALGEA.getDescription());
-		accessory.setCost(5.36);
+		accessory.setPrice(new BigDecimal(5.36));
 		
 		fish = new Fish();
 		fish.setName("Basslet");
 		fish.setTaxonomy(FishType.ANGELFISH.getTaxonomy());
-		fish.setCost(3.25);
+		fish.setPrice(new BigDecimal(3.25));
 		
 		reptile = new Reptile();
 		reptile.setName("Frog");
 		reptile.setTaxonomy(ReptileType.FROG.getTaxonomy());
-		reptile.setCost(12.5);
+		reptile.setPrice(new BigDecimal(12.5));
 	}
 
 	@AfterClass
@@ -62,8 +65,8 @@ public class TestTankManager{
 	@Test
 	public void test() {
 		tm = new TankManager();
-		double result = tm.calculateTotalSum(tank);
-		assertEquals("Total must be 144.61",144.61,result,0.005); 
+		BigDecimal result = tm.calculateTotalSum(tank);
+		assertEquals("Total must be 144.61",144.61,result.doubleValue(),0.005); 
 		//fail("Not yet implemented");
 	}
 
