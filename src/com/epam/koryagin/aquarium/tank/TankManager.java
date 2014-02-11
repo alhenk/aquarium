@@ -7,6 +7,7 @@ import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.print.Console;
 import com.epam.koryagin.aquarium.print.PrintBehavior;
+import com.epam.koryagin.aquarium.resource_manager.Properties;
 
 /**
  * Tank Manager create an instance of Tank, create instances of accessories and
@@ -21,13 +22,13 @@ public class TankManager {
 	private static final PrintBehavior OUTPUT = new Console();
 	// Tanks random price constants
 	// TODO move it to dedicated test/debug/simulation class
-	private static final BigDecimal communityTankPrice = generatePrice(new BigDecimal(79.90), new BigDecimal(114.90));
-	private static final BigDecimal speciesTankPrice = generatePrice(new BigDecimal(199.0), new BigDecimal(249.90));
-	private static final BigDecimal terrariumPrice = generatePrice(new BigDecimal(169.90), new BigDecimal(209.90));
-	private static final BigDecimal goldfishBowlPrice = generatePrice(new BigDecimal(169.90), new BigDecimal(209.90));
-	private static final BigDecimal sharkPondPrice = generatePrice(new BigDecimal(10000.0), new BigDecimal(25000.0));
+	private static final BigDecimal communityTankPrice = Properties.randomPrice(new BigDecimal(79.90), new BigDecimal(114.90));
+	private static final BigDecimal speciesTankPrice = Properties.randomPrice(new BigDecimal(199.0), new BigDecimal(249.90));
+	private static final BigDecimal terrariumPrice = Properties.randomPrice(new BigDecimal(169.90), new BigDecimal(209.90));
+	private static final BigDecimal goldfishBowlPrice = Properties.randomPrice(new BigDecimal(169.90), new BigDecimal(209.90));
+	private static final BigDecimal sharkPondPrice = Properties.randomPrice(new BigDecimal(10000.0), new BigDecimal(25000.0));
 	private static final BigDecimal tropicalAquariumPrice = 
-												generatePrice(new BigDecimal(245.61),	new BigDecimal(532.14));
+												Properties.randomPrice(new BigDecimal(245.61),	new BigDecimal(532.14));
 
 	//private Accessory accessory;
 	private Tank tank;
@@ -116,18 +117,5 @@ public class TankManager {
 			}
 		}
 		return (BigDecimal) total;
-	}
-
-	/**
-	 * Random price generator 
-	 * TODO move it to a dedicated test/debug/simulation
-	 * class
-	 * @note IT VIOLATES THE DRY PRINCIPLE
-	 * @param min price
-	 * @param max price
-	 * @return random price value
-	 */
-	public static BigDecimal generatePrice(BigDecimal min, BigDecimal max){
-		return (max.subtract(min)).multiply(new BigDecimal(Math.random())).add(min);
 	}
 }

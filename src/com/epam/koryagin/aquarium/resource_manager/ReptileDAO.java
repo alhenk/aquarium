@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.Enumeration;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+
 import org.apache.log4j.Logger;
+
 import com.epam.koryagin.aquarium.item.Item;
 import com.epam.koryagin.aquarium.reptile.Reptile;
 
@@ -23,6 +25,8 @@ public class ReptileDAO implements ItemDAO {
 		Double sizeMax;
 		Double tankVolumeMin;
 		String taxonomy;
+		BigDecimal priceMin;
+		BigDecimal priceMax;
 		Enumeration<String> reptileList = reptileType.getKeys();
 		while (reptileList.hasMoreElements()){
 			keyName = reptileList.nextElement();
@@ -52,12 +56,20 @@ public class ReptileDAO implements ItemDAO {
 					sb.append("reptile.").append(keyName).append(".tankVolumeMin");
 					tankVolumeMin = Properties.checkDoubleProperty(reptileProperties, sb.toString());
 				
-					Item item = new Reptile(uid, name);
-					item.setPrice(price);
-					item.setDescription(description);
-					((Reptile)item).setTaxonomy(taxonomy);
-					((Reptile)item).setSizeMax(sizeMax);
-					((Reptile)item).setTankVolumeMin(tankVolumeMin);
+					sb = new StringBuilder();
+					sb.append("reptile.").append(keyName).append(".priceMin");
+					priceMin = Properties.checkBigDecimalProperty(reptileProperties, sb.toString());
+					
+					sb = new StringBuilder();
+					sb.append("reptile.").append(keyName).append(".priceMax");
+					priceMax = Properties.checkBigDecimalProperty(reptileProperties, sb.toString());
+					
+					price = Properties.randomPrice(priceMin, priceMax);
+					
+					//TODO consider using Builder pattern
+					Item item = new Reptile(uid, name, description, price, 
+							taxonomy, sizeMax, tankVolumeMin);
+				
 					return item;
 				} catch (MissingResourceException e){
 					LOGGER.error("No such item");

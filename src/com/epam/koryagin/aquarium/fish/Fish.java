@@ -1,30 +1,24 @@
 package com.epam.koryagin.aquarium.fish;
 
+import java.math.BigDecimal;
+
 import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.item.Item;
 
 /**
- * Class Fish
- * Minimum Tank Size: 30 gallons
- * Care Level: Easy
- * Temperament: Semi-aggressive
- * Water Conditions: 74-79° F, KH 4-10, pH 6.0-7.0
- * Max. Size: 3"
- * Color Form: Black, Orange, White, Yellow
- * Diet: Omnivore
- * Compatibility: View Chart
- * Origin: Farm Raised, USA
- * Family: Cyprinidae
+ * Class Fish Minimum Tank Size: 30 gallons Care Level: Easy Temperament:
+ * Semi-aggressive Water Conditions: 74-79° F, KH 4-10, pH 6.0-7.0 Max. Size:
+ * 3" Color Form: Black, Orange, White, Yellow Diet: Omnivore Compatibility:
+ * View Chart Origin: Farm Raised, USA Family: Cyprinidae
  * 
  * @author Koryagin
  * @data 2013.12.11
  * @version 1.0.0
  */
 public class Fish extends Animal {
-	private double aquariumMinVolume;
+
 	private double pHMax;
 	private double pHMin;
-	private FishType type;
 	private double waterTemperatureMax;
 	private double waterTemperatureMin;
 
@@ -35,19 +29,20 @@ public class Fish extends Animal {
 		super(); // just a filler
 	}
 
-	public Fish(int uid, String name) {
+	public Fish(int uid, String name, String description, BigDecimal price,
+			String taxonomy, double sizeMax, double tankVolumeMin) {
 		this.setUID(uid);
 		this.setName(name);
+		this.setDescription(description);
+		this.setPrice(price);
+		this.setTaxonomy(taxonomy);
+		this.setSizeMax(sizeMax);
+		this.setTankVolumeMin(tankVolumeMin);
 	}
 
 	@Override
 	public int compareTo(Item o) {
 		return this.getName().compareTo(o.getName());
-	}
-
-	// setters & getters
-	public double getAquariumVolumeMin() {
-		return aquariumMinVolume;
 	}
 
 	public double getpHMax() {
@@ -66,12 +61,12 @@ public class Fish extends Animal {
 		return waterTemperatureMin;
 	}
 
-	public FishType getType() {
-		return type;
+	public double getWaterTemperatureMax() {
+		return waterTemperatureMax;
 	}
 
-	public void setAquariumVolumeMin(double aquariumVolumeMin) {
-		this.aquariumMinVolume = aquariumVolumeMin;
+	public double getWaterTemperatureMin() {
+		return waterTemperatureMin;
 	}
 
 	public void setpHMax(double pHMax) {
@@ -88,10 +83,6 @@ public class Fish extends Animal {
 
 	public void setTemperatureMin(double temperatureMin) {
 		this.waterTemperatureMin = temperatureMin;
-	}
-
-	public void setType(FishType type) {
-		this.type = type;
 	}
 
 }

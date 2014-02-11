@@ -10,6 +10,7 @@ import com.epam.koryagin.aquarium.animal.AnimalFactory;
 import com.epam.koryagin.aquarium.item.ItemType;
 import com.epam.koryagin.aquarium.print.Console;
 import com.epam.koryagin.aquarium.print.PrintBehavior;
+import com.epam.koryagin.aquarium.resource_manager.Properties;
 
 /**
  * The factory creates instances of Reptile
@@ -21,18 +22,18 @@ import com.epam.koryagin.aquarium.print.PrintBehavior;
 public class ReptileFactory implements AnimalFactory {
 	private static final PrintBehavior OUTPUT = new Console();
 	// Reptiles random price constants
-	private static final BigDecimal alligatorPrice = generatePrice(new BigDecimal(500.0), new BigDecimal(1500.0));
-	private static final BigDecimal caimanPrice = generatePrice(new BigDecimal(300.0), new BigDecimal(800.0));
-	private static final BigDecimal crocodilePrice = generatePrice(new BigDecimal(420.0), new BigDecimal(1750.0));
-	private static final BigDecimal frogPrice = generatePrice(new BigDecimal(25.0), new BigDecimal(26.0));
-	private static final BigDecimal gharialPrice = generatePrice(new BigDecimal(630.0), new BigDecimal(2100.0));
-	private static final BigDecimal lizardPrice = generatePrice(new BigDecimal(500.0), new BigDecimal(1500.0));
-	private static final BigDecimal salamanderPrice = generatePrice(new BigDecimal(58.0), new BigDecimal(480.0));
-	private static final BigDecimal snakePrice = generatePrice(new BigDecimal(20.0), new BigDecimal(3500.0));
-	private static final BigDecimal tautaraPrice = generatePrice(new BigDecimal(6.0), new BigDecimal(90.0));
-	private static final BigDecimal terrapinPrice = generatePrice(new BigDecimal(240.0), new BigDecimal(380.0));
-	private static final BigDecimal tortoisePrice = generatePrice(new BigDecimal(678.0), new BigDecimal(852.0));
-	private static final BigDecimal turtlePrice = generatePrice(new BigDecimal(600.0), new BigDecimal(3000.0));
+	private static final BigDecimal alligatorPrice = Properties.randomPrice(new BigDecimal(500.0), new BigDecimal(1500.0));
+	private static final BigDecimal caimanPrice = Properties.randomPrice(new BigDecimal(300.0), new BigDecimal(800.0));
+	private static final BigDecimal crocodilePrice = Properties.randomPrice(new BigDecimal(420.0), new BigDecimal(1750.0));
+	private static final BigDecimal frogPrice = Properties.randomPrice(new BigDecimal(25.0), new BigDecimal(26.0));
+	private static final BigDecimal gharialPrice = Properties.randomPrice(new BigDecimal(630.0), new BigDecimal(2100.0));
+	private static final BigDecimal lizardPrice = Properties.randomPrice(new BigDecimal(500.0), new BigDecimal(1500.0));
+	private static final BigDecimal salamanderPrice = Properties.randomPrice(new BigDecimal(58.0), new BigDecimal(480.0));
+	private static final BigDecimal snakePrice = Properties.randomPrice(new BigDecimal(20.0), new BigDecimal(3500.0));
+	private static final BigDecimal tautaraPrice = Properties.randomPrice(new BigDecimal(6.0), new BigDecimal(90.0));
+	private static final BigDecimal terrapinPrice = Properties.randomPrice(new BigDecimal(240.0), new BigDecimal(380.0));
+	private static final BigDecimal tortoisePrice = Properties.randomPrice(new BigDecimal(678.0), new BigDecimal(852.0));
+	private static final BigDecimal turtlePrice = Properties.randomPrice(new BigDecimal(600.0), new BigDecimal(3000.0));
 
 	Animal animal;
 	public Animal createAnimal(ItemType pet){
@@ -118,17 +119,5 @@ public class ReptileFactory implements AnimalFactory {
 			break;
 		}
 		return animal;
-	}
-	
-	/**
-	 * Random price generator
-	 * TODO move it to a dedicated test/debug/simulation class 
-	 * @note IT VIOLATES THE DRY PRINCIPLE
-	 * @param min price
-	 * @param max price
-	 * @return random price value
-	 */
-	public static BigDecimal generatePrice(BigDecimal min, BigDecimal max){
-		return (max.subtract(min)).multiply(new BigDecimal(Math.random())).add(min);
 	}
 }

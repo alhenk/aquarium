@@ -49,4 +49,14 @@ public final class Properties {
 		}
 		return result;
 	}
+	
+	/**
+	 * Random price generator 
+	 * @param min price
+	 * @param max price
+	 * @return random price value
+	 */
+	public static BigDecimal randomPrice(BigDecimal min, BigDecimal max){
+		return (max.subtract(min)).multiply(new BigDecimal(Math.random())).add(min);
+	}
 }

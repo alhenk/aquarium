@@ -20,6 +20,8 @@ public class AccessoryDAO implements ItemDAO{
 		String name;
 		String description;
 		BigDecimal price;
+		BigDecimal priceMin;
+		BigDecimal priceMax;
 		Enumeration<String> accessoryList = accessoryType.getKeys();
 		while (accessoryList.hasMoreElements()){
 			keyName = accessoryList.nextElement();
@@ -36,7 +38,16 @@ public class AccessoryDAO implements ItemDAO{
 					sb = new StringBuilder();
 					sb.append("accessory.").append(keyName).append(".price");
 					price = Properties.checkBigDecimalProperty(accessoryProperties, sb.toString());
-
+					
+					sb = new StringBuilder();
+					sb.append("accessory.").append(keyName).append(".priceMin");
+					priceMin = Properties.checkBigDecimalProperty(accessoryProperties, sb.toString());
+					
+					sb = new StringBuilder();
+					sb.append("accessory.").append(keyName).append(".priceMax");
+					priceMax = Properties.checkBigDecimalProperty(accessoryProperties, sb.toString());
+					
+					price = Properties.randomPrice(priceMin, priceMax);
 					Item item = new Accessory(uid, name, description, price);
 					return item;
 				} catch (MissingResourceException e){

@@ -4,13 +4,11 @@
 package com.epam.koryagin.aquarium;
 
 import com.epam.koryagin.aquarium.accessory.Accessory;
+import com.epam.koryagin.aquarium.fish.Fish;
+import com.epam.koryagin.aquarium.reptile.Reptile;
 import com.epam.koryagin.aquarium.resource_manager.AccessoryDAO;
-
-//import com.epam.koryagin.aquarium.print.Console;
-//import com.epam.koryagin.aquarium.print.PrintBehavior;
-//import com.epam.koryagin.aquarium.fish.FishType;
-//import com.epam.koryagin.aquarium.item.ItemType;
-//import com.epam.koryagin.aquarium.resource_manager.ResourceManager;
+import com.epam.koryagin.aquarium.resource_manager.FishDAO;
+import com.epam.koryagin.aquarium.resource_manager.ReptileDAO;
 
 /**
  * Aquarium CLI application 
@@ -30,20 +28,20 @@ public class Runner {
 //		printList((ArrayList<Animal>)list);
 		
 		
-//		FishDAO fishDAO = new FishDAO();
-//		Fish fish = (Fish)(fishDAO.fetchItem(11));
-//		System.out.println(fish);
-//		System.out.println(fish.getDescription());
-//		System.out.println(fish.getSize());
-//		System.out.println(fish.getTankVolumeMin());
-		
-//		ReptileDAO reptileDAO = new ReptileDAO();
-//		Reptile reptile = (Reptile)(reptileDAO.fetchItem(12));
-//		System.out.println(reptile);
-//		System.out.println(reptile.getDescription());
-//		System.out.println(reptile.getSize());
-//		System.out.println(reptile.getTankVolumeMin());
-		
+		FishDAO fishDAO = new FishDAO();
+		Fish fish = (Fish)(fishDAO.fetchItem(11));
+		System.out.println(fish);
+		System.out.println(fish.getDescription());
+		System.out.println(fish.getSize());
+		System.out.println(fish.getTankVolumeMin());
+		System.out.println();
+		ReptileDAO reptileDAO = new ReptileDAO();
+		Reptile reptile = (Reptile)(reptileDAO.fetchItem(12));
+		System.out.println(reptile);
+		System.out.println(reptile.getDescription());
+		System.out.println(reptile.getSize());
+		System.out.println(reptile.getTankVolumeMin());
+		System.out.println();
 		AccessoryDAO accessoryDAO = new AccessoryDAO();
 		Accessory accessory = (Accessory)(accessoryDAO.fetchItem(1));
 		System.out.println(accessory);

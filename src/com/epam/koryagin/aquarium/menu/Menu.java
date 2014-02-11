@@ -3,7 +3,7 @@ package com.epam.koryagin.aquarium.menu;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import com.epam.koryagin.aquarium.accessory.AccessoryManager;
+import com.epam.koryagin.aquarium.accessory.AccessoryFactory;
 import com.epam.koryagin.aquarium.accessory.AccessoryType;
 import com.epam.koryagin.aquarium.fish.FishFactory;
 import com.epam.koryagin.aquarium.fish.FishType;
@@ -24,7 +24,7 @@ public class Menu {
 	private State state = State.START;
 	private ReptileFactory rf = new ReptileFactory();
 	private FishFactory ff = new FishFactory();
-	private AccessoryManager am = new AccessoryManager();
+	private AccessoryFactory am = new AccessoryFactory();
 	private TankManager tm = new TankManager();
 	private static Tank tank;
 	

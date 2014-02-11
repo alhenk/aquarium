@@ -4,20 +4,21 @@ import java.math.BigDecimal;
 
 import com.epam.koryagin.aquarium.print.Console;
 import com.epam.koryagin.aquarium.print.PrintBehavior;
+import com.epam.koryagin.aquarium.resource_manager.Properties;
 
 
-public class AccessoryManager {
+public class AccessoryFactory {
 	private static final PrintBehavior OUTPUT = new Console();
 	// Accessories random price constants
 		// TODO move it to dedicated test/debug/simulation class
-		private static final BigDecimal algaePrice = generatePrice(new BigDecimal(12.0), new BigDecimal(15.0));
-		private static final BigDecimal filterPrice = generatePrice(new BigDecimal(44.99), new BigDecimal(66.45));
-		private static final BigDecimal heaterPrice = generatePrice(new BigDecimal(7.98), new BigDecimal(27.99));
-		private static final BigDecimal lampPrice = generatePrice(new BigDecimal(53.95), new BigDecimal(132.85));
-		private static final BigDecimal peblesPrice = generatePrice(new BigDecimal(5.50), new BigDecimal(31.9));
-		private static final BigDecimal pumpPrice = generatePrice(new BigDecimal(49.98), new BigDecimal(66.45));
-		private static final BigDecimal sandPrice = generatePrice(new BigDecimal(4.99), new BigDecimal(17.99));
-		private static final BigDecimal thermometerPrice = generatePrice(new BigDecimal(4.27), new BigDecimal(8.85));
+		private static final BigDecimal algaePrice = Properties.randomPrice(new BigDecimal(12.0), new BigDecimal(15.0));
+		private static final BigDecimal filterPrice = Properties.randomPrice(new BigDecimal(44.99), new BigDecimal(66.45));
+		private static final BigDecimal heaterPrice = Properties.randomPrice(new BigDecimal(7.98), new BigDecimal(27.99));
+		private static final BigDecimal lampPrice = Properties.randomPrice(new BigDecimal(53.95), new BigDecimal(132.85));
+		private static final BigDecimal peblesPrice = Properties.randomPrice(new BigDecimal(5.50), new BigDecimal(31.9));
+		private static final BigDecimal pumpPrice = Properties.randomPrice(new BigDecimal(49.98), new BigDecimal(66.45));
+		private static final BigDecimal sandPrice = Properties.randomPrice(new BigDecimal(4.99), new BigDecimal(17.99));
+		private static final BigDecimal thermometerPrice = Properties.randomPrice(new BigDecimal(4.27), new BigDecimal(8.85));
 		
 		private Accessory accessory;
 		
@@ -84,20 +85,5 @@ public class AccessoryManager {
 				break;
 			}
 			return accessory;
-		}
-		
-		
-		
-		/**
-		 * Random price generator 
-		 * TODO move it to a dedicated test/debug/simulation
-		 * class
-		 * @note IT VIOLATES THE DRY PRINCIPLE
-		 * @param min price
-		 * @param max price
-		 * @return random price value
-		 */
-		public static BigDecimal generatePrice(BigDecimal min, BigDecimal max){
-			return (max.subtract(min)).multiply(new BigDecimal(Math.random())).add(min);
 		}
 }

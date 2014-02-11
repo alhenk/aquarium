@@ -3,7 +3,7 @@ package com.epam.koryagin.aquarium;
 import java.util.Scanner;
 
 import com.epam.koryagin.aquarium.accessory.Accessory;
-import com.epam.koryagin.aquarium.accessory.AccessoryManager;
+import com.epam.koryagin.aquarium.accessory.AccessoryFactory;
 import com.epam.koryagin.aquarium.accessory.AccessoryType;
 import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.fish.FishFactory;
@@ -51,7 +51,7 @@ public class Actions {
 	public static Tank sampleAquarium() {
 		ReptileFactory rf = new ReptileFactory();
 		FishFactory ff = new FishFactory();
-		AccessoryManager am = new AccessoryManager();
+		AccessoryFactory am = new AccessoryFactory();
 		TankManager tm = new TankManager();
 
 		Tank tank = tm.createTank(TankType.TROPICAL_AQUARIUM);
@@ -82,7 +82,7 @@ public class Actions {
 	public static void printAllAvailableItems() {
 		ReptileFactory rf = new ReptileFactory();
 		FishFactory ff = new FishFactory();
-		AccessoryManager am = new AccessoryManager();
+		AccessoryFactory am = new AccessoryFactory();
 		TankManager tm = new TankManager();
 
 		OUTPUT.println("REPTILES :");
