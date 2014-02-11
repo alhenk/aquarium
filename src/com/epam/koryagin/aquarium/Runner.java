@@ -3,10 +3,11 @@
  */
 package com.epam.koryagin.aquarium;
 
-import java.util.Enumeration;
-import java.util.ResourceBundle;
-
-import com.epam.koryagin.aquarium.resource_manager.Properties;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import com.epam.koryagin.aquarium.animal.Animal;
+import com.epam.koryagin.aquarium.fish.Fish;
+import com.epam.koryagin.aquarium.resource_manager.FishDAO;
 
 //import com.epam.koryagin.aquarium.print.Console;
 //import com.epam.koryagin.aquarium.print.PrintBehavior;
@@ -28,6 +29,12 @@ public class Runner {
 	public static void main(String[] args) {
 //		Tank tank = Actions.sampleAquarium();
 //		List<Animal> list = tank.getInhabitants();
+//		Collections.sort(list);
+//		printList((ArrayList<Animal>)list);
+		FishDAO fishDAO = new FishDAO();
+		Fish fish = (Fish)(fishDAO.fetchItem(4));
+		System.out.println(fish);
+		
 //
 //		Actions.printAllAvailableItems();
 		
@@ -37,22 +44,29 @@ public class Runner {
 		//OUTPUT.println(ResourceManager.fishDao.fetchFishMaxPrice());
 		//OUTPUT.printf("%d",4);
 		//Actions.runMenu();
-		ResourceBundle fishType = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fishType");
-		ResourceBundle fishProperties = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fish");
-		Enumeration<String> list = fishType.getKeys();
-		StringBuilder sb = new StringBuilder();
-		while (list.hasMoreElements()){
-			String key = list.nextElement();
-			String value = fishType.getString(key);
-			if (Properties.checkIntegerProperty(fishType, key) == 5){
-				sb.append("fish.").append(key).append(".name");
-				System.out.print(fishProperties.getString(sb.toString())+ " -> ");
-				sb = new StringBuilder();
-				sb.append("fish.").append(key).append(".taxonomy");
-				System.out.println(fishProperties.getString(sb.toString()));
-			}
-			
-			System.out.println(key +" -> "+ value );
+//		ResourceBundle fishType = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fishType");
+//		ResourceBundle fishProperties = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fish");
+//		Enumeration<String> list = fishType.getKeys();
+//		StringBuilder sb = new StringBuilder();
+//		while (list.hasMoreElements()){
+//			String key = list.nextElement();
+//			String value = fishType.getString(key);
+//			if (Properties.checkIntegerProperty(fishType, key) == 5){
+//				sb.append("fish.").append(key).append(".name");
+//				System.out.print(fishProperties.getString(sb.toString())+ " -> ");
+//				sb = new StringBuilder();
+//				sb.append("fish.").append(key).append(".taxonomy");
+//				System.out.println(fishProperties.getString(sb.toString()));
+//			}
+//			
+//			System.out.println(key +" -> "+ value );
+//		}
+		
+	}
+	private static void printList(ArrayList<Animal> list){
+		for(Animal a : list){
+			System.out.println(a);
 		}
 	}
+	
 }

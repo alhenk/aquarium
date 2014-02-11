@@ -9,28 +9,45 @@ import java.text.NumberFormat;
 import com.epam.koryagin.aquarium.item.Item;
 
 /**
- * Super class of aquarium inhabitants
- * taxonomy - scientific classification
- * sizeMax  - maximum size (length)
+ * Super class of aquarium inhabitants taxonomy - scientific classification
+ * sizeMax - maximum size (length)
+ * 
  * @author Koryagin
  * @date 2013.12.09
  * @version 1.0.0
  */
 
-public abstract class Animal extends Item{
-	private String taxonomy;
+public abstract class Animal extends Item {
 	private double sizeMax;
 	private double tankVolumeMin;
-	
-	public String getTaxonomy(){
+	private String taxonomy;
+
+	public double getSize() {
+		return sizeMax;
+	}
+
+	public double getTankVolumeMin() {
+		return tankVolumeMin;
+	}
+
+	public String getTaxonomy() {
 		return taxonomy;
 	}
-	public void setTaxonomy(String taxonomy){
+
+	public void setSize(double size) {
+		this.sizeMax = size;
+	}
+
+	public void setTankVolumeMin(double tankVolumeMin) {
+		this.tankVolumeMin = tankVolumeMin;
+	}
+
+	public void setTaxonomy(String taxonomy) {
 		this.taxonomy = taxonomy;
 	}
-	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		NumberFormat formatter = new DecimalFormat("#0.00");
 		final StringBuilder sb = new StringBuilder();
 		sb.append(this.getName().toUpperCase());
@@ -38,17 +55,5 @@ public abstract class Animal extends Item{
 		sb.append(this.getTaxonomy());
 		sb.append(", $").append(formatter.format(this.getPrice()));
 		return sb.toString();
-	}
-	public double getSize() {
-		return sizeMax;
-	}
-	public void setSize(double size) {
-		this.sizeMax = size;
-	}
-	public double getTankVolumeMin() {
-		return tankVolumeMin;
-	}
-	public void setTankVolumeMin(double tankVolumeMin) {
-		this.tankVolumeMin = tankVolumeMin;
 	}
 }

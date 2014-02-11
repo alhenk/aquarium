@@ -8,12 +8,12 @@ package com.epam.koryagin.aquarium.resource_manager;
  */
 public final class ResourceManager {
 	
-	public static FishDAO fishDao = new FishPropertiesDAO("com.epam.koryagin.aquarium.resources.fish");
-	
-	/**
-	 * Default constructor
-	 */
-	private ResourceManager() {
-		super();
-	}
+//	public static FishDAO fishDao = new FishPropertiesDAO("com.epam.koryagin.aquarium.resources.fish");
+//	
+//	/**
+//	 * Default constructor
+//	 */
+//	private ResourceManager() {
+//		super();
+//	}
 }
