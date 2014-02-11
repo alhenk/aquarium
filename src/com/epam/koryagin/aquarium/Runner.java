@@ -3,6 +3,8 @@
  */
 package com.epam.koryagin.aquarium;
 
+import java.util.ResourceBundle;
+
 import com.epam.koryagin.aquarium.accessory.Accessory;
 import com.epam.koryagin.aquarium.fish.Fish;
 import com.epam.koryagin.aquarium.reptile.Reptile;
@@ -20,7 +22,7 @@ import com.epam.koryagin.aquarium.resource_manager.ReptileDAO;
  */
 public class Runner {
 	//private static final PrintBehavior OUTPUT = new Console();
-
+	public static final  ResourceBundle fishProperties = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fish");
 	public static void main(String[] args) {
 //		Tank tank = Actions.sampleAquarium();
 //		List<Animal> list = tank.getInhabitants();
@@ -29,24 +31,24 @@ public class Runner {
 		
 		
 		FishDAO fishDAO = new FishDAO();
-		Fish fish = (Fish)(fishDAO.fetchItem(11));
+		Fish fish = (Fish)(fishDAO.getItem(11));
 		System.out.println(fish);
 		System.out.println(fish.getDescription());
 		System.out.println(fish.getSize());
 		System.out.println(fish.getTankVolumeMin());
 		System.out.println();
 		ReptileDAO reptileDAO = new ReptileDAO();
-		Reptile reptile = (Reptile)(reptileDAO.fetchItem(12));
+		Reptile reptile = (Reptile)(reptileDAO.getItem(12));
 		System.out.println(reptile);
 		System.out.println(reptile.getDescription());
 		System.out.println(reptile.getSize());
 		System.out.println(reptile.getTankVolumeMin());
 		System.out.println();
 		AccessoryDAO accessoryDAO = new AccessoryDAO();
-		Accessory accessory = (Accessory)(accessoryDAO.fetchItem(1));
+		Accessory accessory = (Accessory)(accessoryDAO.getItem(1));
 		System.out.println(accessory);
 
-		
+			
 		
 //
 //		Actions.printAllAvailableItems();
@@ -56,7 +58,7 @@ public class Runner {
 		
 		//OUTPUT.println(ResourceManager.fishDao.fetchFishMaxPrice());
 		//OUTPUT.printf("%d",4);
-		//Actions.runMenu();
+		Actions.runMenu();
 //		ResourceBundle fishType = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fishType");
 //		ResourceBundle fishProperties = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fish");
 //		Enumeration<String> list = fishType.getKeys();

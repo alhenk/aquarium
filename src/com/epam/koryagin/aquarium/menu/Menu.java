@@ -202,7 +202,7 @@ public class Menu {
 	public void displayInitTankMenu(){
 		StringBuilder sb = new StringBuilder();
 		for (TankType t : TankType.values()){
-			sb.append(t.getCode()).append(" ");
+			sb.append(t.getUID()).append(" ");
 			sb.append(t.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");
@@ -215,7 +215,7 @@ public class Menu {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
 		for (FishType f : FishType.values()){
-			sb.append(f.getCode()).append(" ");
+			sb.append(f.getUID()).append(" ");
 			sb.append(f.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");
@@ -228,7 +228,7 @@ public class Menu {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
 		for (ReptileType r : ReptileType.values()){
-			sb.append(r.getCode()).append(" ");
+			sb.append(r.getUID()).append(" ");
 			sb.append(r.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");
@@ -240,7 +240,7 @@ public class Menu {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
 		for (AccessoryType a : AccessoryType.values()){
-			sb.append(a.getCode()).append(" ");
+			sb.append(a.getUID()).append(" ");
 			sb.append(a.getName().toUpperCase()).append("\n");
 		}
 		sb.append("0 ");

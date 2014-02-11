@@ -16,7 +16,7 @@ public class FishDAO implements ItemDAO {
 	public static ResourceBundle fishProperties = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.fish");
 	
 	@Override
-	public Item fetchItem(int uid) {
+	public Item getItem(int uid) {
 		StringBuilder sb;
 		String keyName;
 		String name;

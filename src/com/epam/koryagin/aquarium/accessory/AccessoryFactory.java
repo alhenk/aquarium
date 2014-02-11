@@ -1,27 +1,24 @@
 package com.epam.koryagin.aquarium.accessory;
 
-import java.math.BigDecimal;
-
 import com.epam.koryagin.aquarium.print.Console;
 import com.epam.koryagin.aquarium.print.PrintBehavior;
-import com.epam.koryagin.aquarium.resource_manager.Properties;
+import com.epam.koryagin.aquarium.resource_manager.AccessoryDAO;
 
 
 public class AccessoryFactory {
 	private static final PrintBehavior OUTPUT = new Console();
-	// Accessories random price constants
-		// TODO move it to dedicated test/debug/simulation class
-		private static final BigDecimal algaePrice = Properties.randomPrice(new BigDecimal(12.0), new BigDecimal(15.0));
-		private static final BigDecimal filterPrice = Properties.randomPrice(new BigDecimal(44.99), new BigDecimal(66.45));
-		private static final BigDecimal heaterPrice = Properties.randomPrice(new BigDecimal(7.98), new BigDecimal(27.99));
-		private static final BigDecimal lampPrice = Properties.randomPrice(new BigDecimal(53.95), new BigDecimal(132.85));
-		private static final BigDecimal peblesPrice = Properties.randomPrice(new BigDecimal(5.50), new BigDecimal(31.9));
-		private static final BigDecimal pumpPrice = Properties.randomPrice(new BigDecimal(49.98), new BigDecimal(66.45));
-		private static final BigDecimal sandPrice = Properties.randomPrice(new BigDecimal(4.99), new BigDecimal(17.99));
-		private static final BigDecimal thermometerPrice = Properties.randomPrice(new BigDecimal(4.27), new BigDecimal(8.85));
-		
 		private Accessory accessory;
 		
+		/**
+		 * Overloaded factory method
+		 * @param uid
+		 * @return
+		 */
+		public Accessory createAccessory(int uid){
+			AccessoryDAO accessoryDAO = new AccessoryDAO();
+			Accessory accessory = (Accessory)(accessoryDAO.getItem(uid));
+			return accessory;
+		}
 		/**
 		 * Accessory factory method 
 		 * TODO think of abstract factory
@@ -34,51 +31,51 @@ public class AccessoryFactory {
 			switch (accessories) {
 			case ALGAE:
 				accessory = new Accessory();
-				accessory.setName("Algae");
+				accessory.setName(AccessoryType.ALGAE.getName());
 				accessory.setDescription(AccessoryType.ALGAE.getDescription());
-				accessory.setPrice(algaePrice);
+				accessory.setPrice(AccessoryType.ALGAE.getPrice());
 				break;
 			case FILTER:
 				accessory = new Accessory();
-				accessory.setName("Filter");
+				accessory.setName(AccessoryType.FILTER.getName());
 				accessory.setDescription(AccessoryType.FILTER.getDescription());
-				accessory.setPrice(filterPrice);
+				accessory.setPrice(AccessoryType.FILTER.getPrice());
 				break;
 			case HEATER:
 				accessory = new Accessory();
-				accessory.setName("Heater");
+				accessory.setName(AccessoryType.HEATER.getName());
 				accessory.setDescription(AccessoryType.HEATER.getDescription());
-				accessory.setPrice(heaterPrice);
+				accessory.setPrice(AccessoryType.HEATER.getPrice());
 				break;
 			case LAMP:
 				accessory = new Accessory();
-				accessory.setName("Lamp");
+				accessory.setName(AccessoryType.LAMP.getName());
 				accessory.setDescription(AccessoryType.LAMP.getDescription());
-				accessory.setPrice(lampPrice);
+				accessory.setPrice(AccessoryType.LAMP.getPrice());
 				break;
 			case PEBLES:
 				accessory = new Accessory();
-				accessory.setName("Pebles");
+				accessory.setName(AccessoryType.PEBLES.getName());
 				accessory.setDescription(AccessoryType.PEBLES.getDescription());
-				accessory.setPrice(peblesPrice);
+				accessory.setPrice(AccessoryType.PEBLES.getPrice());
 				break;
 			case PUMP:
 				accessory = new Accessory();
-				accessory.setName("Pump");
+				accessory.setName(AccessoryType.PUMP.getName());
 				accessory.setDescription(AccessoryType.PUMP.getDescription());
-				accessory.setPrice(pumpPrice);
+				accessory.setPrice(AccessoryType.PUMP.getPrice());
 				break;
 			case SAND:
 				accessory = new Accessory();
-				accessory.setName("Sand");
+				accessory.setName(AccessoryType.SAND.getName());
 				accessory.setDescription(AccessoryType.SAND.getDescription());
-				accessory.setPrice(sandPrice);
+				accessory.setPrice(AccessoryType.SAND.getPrice());
 				break;
 			case THERMOMETER:
 				accessory = new Accessory();
-				accessory.setName("Thermometer");
+				accessory.setName(AccessoryType.THERMOMETER.getName());
 				accessory.setDescription(AccessoryType.THERMOMETER.getDescription());
-				accessory.setPrice(thermometerPrice);
+				accessory.setPrice(AccessoryType.THERMOMETER.getPrice());
 				break;
 			default:
 				OUTPUT.println("Wrong Enum Accessories");

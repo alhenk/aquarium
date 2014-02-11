@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * 
  */
 public abstract class Item implements Comparable<Item> {
-	private int UID;
+	private int uid;
 	private String name;
 	private String description;
 	private BigDecimal price;
@@ -27,7 +27,7 @@ public abstract class Item implements Comparable<Item> {
 	}
 
 	public int getUID() {
-		return UID;
+		return uid;
 	}
 
 	public void setDescription(String description) {
@@ -43,7 +43,7 @@ public abstract class Item implements Comparable<Item> {
 	}
 
 	public void setUID(int uid) {
-		this.UID = uid;
+		this.uid = uid;
 	}
 
 }

@@ -14,7 +14,7 @@ public class AccessoryDAO implements ItemDAO{
 	public static ResourceBundle accessoryProperties = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.accessory");
 	
 	@Override
-	public Item fetchItem(int uid) {
+	public Item getItem(int uid) {
 		StringBuilder sb;
 		String keyName;
 		String name;

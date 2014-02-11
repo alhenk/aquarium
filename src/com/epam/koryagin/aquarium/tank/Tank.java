@@ -21,7 +21,7 @@ import com.epam.koryagin.aquarium.item.Item;
  * @version 1.0.0
  */
 public class Tank extends Item{
-	private TankType type;
+	
 	private double volume;
 	private List<Animal> inhabitants = new ArrayList<Animal>();
 	private List<Accessory> accessories = new ArrayList<Accessory>();
@@ -32,6 +32,18 @@ public class Tank extends Item{
 	public Tank() {
 		super();
 	}
+	
+	public Tank(int uid, String name,  String description, 
+			BigDecimal price,double volume) {
+		super();
+		this.setUID(uid);
+		this.setName(name);
+		this.setDescription(description);
+		this.setPrice(price);
+		this.volume = volume;
+		
+	}
+	
 	
 	/**
 	 * Constructor with parameters
@@ -109,14 +121,6 @@ public class Tank extends Item{
 			}
 		}
 		return sb.toString();
-	}
-
-	public TankType getType() {
-		return type;
-	}
-
-	public void setType(TankType type) {
-		this.type = type;
 	}
 
 	@Override

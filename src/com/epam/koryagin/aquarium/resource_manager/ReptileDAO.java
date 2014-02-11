@@ -16,7 +16,7 @@ public class ReptileDAO implements ItemDAO {
 	public static ResourceBundle reptileProperties = ResourceBundle.getBundle("com.epam.koryagin.aquarium.resources.reptile");
 	
 	@Override
-	public Item fetchItem(int uid) {
+	public Item getItem(int uid) {
 		StringBuilder sb;
 		String keyName;
 		String name;
