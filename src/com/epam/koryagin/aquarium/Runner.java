@@ -4,7 +4,9 @@
 package com.epam.koryagin.aquarium;
 
 import com.epam.koryagin.aquarium.fish.Fish;
+import com.epam.koryagin.aquarium.reptile.Reptile;
 import com.epam.koryagin.aquarium.resource_manager.FishDAO;
+import com.epam.koryagin.aquarium.resource_manager.ReptileDAO;
 
 //import com.epam.koryagin.aquarium.print.Console;
 //import com.epam.koryagin.aquarium.print.PrintBehavior;
@@ -28,12 +30,21 @@ public class Runner {
 //		List<Animal> list = tank.getInhabitants();
 //		Collections.sort(list);
 //		printList((ArrayList<Animal>)list);
-		FishDAO fishDAO = new FishDAO();
-		Fish fish = (Fish)(fishDAO.fetchItem(11));
-		System.out.println(fish);
-		System.out.println(fish.getDescription());
-		System.out.println(fish.getSize());
-		System.out.println(fish.getTankVolumeMin());
+		
+		
+//		FishDAO fishDAO = new FishDAO();
+//		Fish fish = (Fish)(fishDAO.fetchItem(11));
+//		System.out.println(fish);
+//		System.out.println(fish.getDescription());
+//		System.out.println(fish.getSize());
+//		System.out.println(fish.getTankVolumeMin());
+		
+		ReptileDAO reptileDAO = new ReptileDAO();
+		Reptile reptile = (Reptile)(reptileDAO.fetchItem(12));
+		System.out.println(reptile);
+		System.out.println(reptile.getDescription());
+		System.out.println(reptile.getSize());
+		System.out.println(reptile.getTankVolumeMin());
 		
 //
 //		Actions.printAllAvailableItems();

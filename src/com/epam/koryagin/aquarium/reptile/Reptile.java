@@ -44,6 +44,15 @@ public class Reptile extends Animal {
 		this.setName(name);
 	}
 	/**
+	 * Constructor with 2 parameters
+	 * @param uid
+	 * @param name
+	 */
+	public Reptile(int uid, String name) {
+		this.setUID(uid);
+		this.setName(name);
+	}
+	/**
 	 * Constructor with parameters
 	 * @param name - reptile name
 	 * @param description - taxonomic classification
