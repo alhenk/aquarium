@@ -32,8 +32,8 @@ public class TestTankManager{
 		tank.setPrice(new BigDecimal(123.5));
 		
 		accessory = new Accessory();
-		accessory.setName("Algea");
-		accessory.setDescription(AccessoryType.ALGEA.getDescription());
+		accessory.setName("Algae");
+		accessory.setDescription(AccessoryType.ALGAE.getDescription());
 		accessory.setPrice(new BigDecimal(5.36));
 		
 		fish = new Fish();

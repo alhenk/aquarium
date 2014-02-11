@@ -10,7 +10,7 @@ public class AccessoryManager {
 	private static final PrintBehavior OUTPUT = new Console();
 	// Accessories random price constants
 		// TODO move it to dedicated test/debug/simulation class
-		private static final BigDecimal algeaPrice = generatePrice(new BigDecimal(12.0), new BigDecimal(15.0));
+		private static final BigDecimal algaePrice = generatePrice(new BigDecimal(12.0), new BigDecimal(15.0));
 		private static final BigDecimal filterPrice = generatePrice(new BigDecimal(44.99), new BigDecimal(66.45));
 		private static final BigDecimal heaterPrice = generatePrice(new BigDecimal(7.98), new BigDecimal(27.99));
 		private static final BigDecimal lampPrice = generatePrice(new BigDecimal(53.95), new BigDecimal(132.85));
@@ -31,11 +31,11 @@ public class AccessoryManager {
 		public Accessory createAccessory(AccessoryType accessories) {
 
 			switch (accessories) {
-			case ALGEA:
+			case ALGAE:
 				accessory = new Accessory();
-				accessory.setName("Algea");
-				accessory.setDescription(AccessoryType.ALGEA.getDescription());
-				accessory.setPrice(algeaPrice);
+				accessory.setName("Algae");
+				accessory.setDescription(AccessoryType.ALGAE.getDescription());
+				accessory.setPrice(algaePrice);
 				break;
 			case FILTER:
 				accessory = new Accessory();

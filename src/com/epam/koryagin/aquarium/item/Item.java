@@ -42,8 +42,8 @@ public abstract class Item implements Comparable<Item> {
 		this.price = price;
 	}
 
-	public void setUID(int id) {
-		this.UID = id;
+	public void setUID(int uid) {
+		this.UID = uid;
 	}
 
 }

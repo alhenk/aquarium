@@ -41,8 +41,9 @@ public class Accessory extends Item{
 	 * @param description - short technical specification 
 	 * @param cost - market price (ebay)
 	 */
-	public Accessory(String name,  String description, 
+	public Accessory(int uid, String name,  String description, 
 			BigDecimal price){
+		this.setUID(uid);
 		this.setName(name);
 		this.setDescription(description);
 		this.setPrice(price);

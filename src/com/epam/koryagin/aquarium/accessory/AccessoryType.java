@@ -17,7 +17,7 @@ import com.epam.koryagin.aquarium.item.ItemType;
 public enum AccessoryType implements ItemType{
 	PUMP(1,"Pump","300Gal Aquarium Adjustable Air Pump, 6 Air Stones, 25 feet Tubing"),
 	FILTER(2,"Filter","100 Gallon Aquarium Fish Tank Canister Filter + 9W UV Sterilizer 370 GPH"),
-	ALGEA(3,"Algea","Freshwater aquarium algae"),
+	ALGAE(3,"Algae","Freshwater aquarium algae"),
 	SAND(4,"Sand","Petco Black Aquarium Sand"),
 	PEBLES(5,"Pebles","Sonora River Pebbles10 Pounds Natural Aquarium Fish Terrarium Gravel Decorative"),
 	LAMP(6,"Lamp","LED 48\" 800 Aquarium Light Freshwater Tropical Fish Single Bright Lunar 120 cm"),

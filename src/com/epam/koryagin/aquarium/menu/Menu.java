@@ -182,7 +182,7 @@ public class Menu {
 			return State.EQUIP_AND_POPULATE;
 		}
 		switch (theItem){
-		case ALGEA:
+		case ALGAE:
 		case FILTER:
 		case HEATER:
 		case LAMP:
