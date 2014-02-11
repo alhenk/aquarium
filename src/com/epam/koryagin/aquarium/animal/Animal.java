@@ -34,8 +34,8 @@ public abstract class Animal extends Item {
 		return taxonomy;
 	}
 
-	public void setSize(double size) {
-		this.sizeMax = size;
+	public void setSizeMax(double sizeMax) {
+		this.sizeMax = sizeMax;
 	}
 
 	public void setTankVolumeMin(double tankVolumeMin) {

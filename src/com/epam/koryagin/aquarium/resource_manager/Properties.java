@@ -36,4 +36,17 @@ public final class Properties {
 		}
 		return result;
 	}
+	
+	public static Double checkDoubleProperty(ResourceBundle resources, String property){
+		Double result = 0.0;
+		try{
+			result = Double.parseDouble(resources.getString(property));
+		}catch(NumberFormatException e){
+			LOGGER.error("The value of "
+					+ property
+					+ " is missing or not a number\n"
+					+ e);
+		}
+		return result;
+	}
 }

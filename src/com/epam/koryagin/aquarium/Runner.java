@@ -3,9 +3,6 @@
  */
 package com.epam.koryagin.aquarium;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.fish.Fish;
 import com.epam.koryagin.aquarium.resource_manager.FishDAO;
 
@@ -32,8 +29,11 @@ public class Runner {
 //		Collections.sort(list);
 //		printList((ArrayList<Animal>)list);
 		FishDAO fishDAO = new FishDAO();
-		Fish fish = (Fish)(fishDAO.fetchItem(4));
+		Fish fish = (Fish)(fishDAO.fetchItem(11));
 		System.out.println(fish);
+		System.out.println(fish.getDescription());
+		System.out.println(fish.getSize());
+		System.out.println(fish.getTankVolumeMin());
 		
 //
 //		Actions.printAllAvailableItems();
@@ -63,10 +63,10 @@ public class Runner {
 //		}
 		
 	}
-	private static void printList(ArrayList<Animal> list){
-		for(Animal a : list){
-			System.out.println(a);
-		}
-	}
+//	private static void printList(ArrayList<Animal> list){
+//		for(Animal a : list){
+//			System.out.println(a);
+//		}
+//	}
 	
 }

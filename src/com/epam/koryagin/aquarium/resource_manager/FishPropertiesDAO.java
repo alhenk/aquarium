@@ -1,8 +1,5 @@
 package com.epam.koryagin.aquarium.resource_manager;
 
-import java.math.BigDecimal;
-import java.util.ResourceBundle;
-
 public class FishPropertiesDAO { //implements FishDAO {
 //	//private static final Logger LOGGER = Logger.getLogger(FishPropertiesDAO.class);
 //	private ResourceBundle resources;

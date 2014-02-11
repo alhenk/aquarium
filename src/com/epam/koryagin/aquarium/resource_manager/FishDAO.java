@@ -4,10 +4,7 @@ import java.math.BigDecimal;
 import java.util.Enumeration;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-
 import org.apache.log4j.Logger;
-
-import com.epam.koryagin.aquarium.Actions;
 import com.epam.koryagin.aquarium.fish.Fish;
 import com.epam.koryagin.aquarium.item.Item;
 
@@ -23,6 +20,8 @@ public class FishDAO implements ItemDAO {
 		String name;
 		String description;
 		BigDecimal price;
+		Double sizeMax;
+		Double tankVolumeMin;
 		String taxonomy;
 		Enumeration<String> fishList = fishType.getKeys();
 		while (fishList.hasMoreElements()){
@@ -44,11 +43,21 @@ public class FishDAO implements ItemDAO {
 					sb = new StringBuilder();
 					sb.append("fish.").append(keyName).append(".taxonomy");
 					taxonomy = fishProperties.getString(sb.toString());
+					
+					sb = new StringBuilder();
+					sb.append("fish.").append(keyName).append(".sizeMax");
+					sizeMax = Properties.checkDoubleProperty(fishProperties, sb.toString());
+					
+					sb = new StringBuilder();
+					sb.append("fish.").append(keyName).append(".tankVolumeMin");
+					tankVolumeMin = Properties.checkDoubleProperty(fishProperties, sb.toString());
 				
 					Item item = new Fish(uid, name);
 					item.setPrice(price);
 					item.setDescription(description);
 					((Fish)item).setTaxonomy(taxonomy);
+					((Fish)item).setSizeMax(sizeMax);
+					((Fish)item).setTankVolumeMin(tankVolumeMin);
 					return item;
 				} catch (MissingResourceException e){
 					LOGGER.error("No such item");

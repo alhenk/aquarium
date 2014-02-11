@@ -55,7 +55,7 @@ public class Reptile extends Animal {
 		this.setName(name);
 		this.setDescription(description);
 		this.setPrice(price);
-		this.setSize(size);
+		this.setSizeMax(size);
 	}
 	public double getHumidity() {
 		return humidity;
