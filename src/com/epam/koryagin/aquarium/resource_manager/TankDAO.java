@@ -55,7 +55,9 @@ public class TankDAO implements ItemDAO {
 					volume = Properties.checkDoubleProperty(tankProperties, sb.toString());
 					
 					price = Properties.randomPrice(priceMin, priceMax);
-					Item item = new Tank(uid, name, description, price, volume);
+					
+					Item item = new Tank.Builder(uid, name).description(description)
+										.price(price).volume(volume).build();
 					return item;
 				} catch (MissingResourceException e){
 					LOGGER.error("No such item");

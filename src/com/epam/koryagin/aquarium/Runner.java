@@ -11,6 +11,8 @@ import com.epam.koryagin.aquarium.reptile.Reptile;
 import com.epam.koryagin.aquarium.resource_manager.AccessoryDAO;
 import com.epam.koryagin.aquarium.resource_manager.FishDAO;
 import com.epam.koryagin.aquarium.resource_manager.ReptileDAO;
+import com.epam.koryagin.aquarium.resource_manager.TankDAO;
+import com.epam.koryagin.aquarium.tank.Tank;
 
 /**
  * Aquarium CLI application 
@@ -47,6 +49,10 @@ public class Runner {
 		AccessoryDAO accessoryDAO = new AccessoryDAO();
 		Accessory accessory = (Accessory)(accessoryDAO.getItem(1));
 		System.out.println(accessory);
+		System.out.println();
+		TankDAO tankDAO = new TankDAO();
+		Tank tank = (Tank)(tankDAO.getItem(2));
+		System.out.println(tank);
 
 			
 		

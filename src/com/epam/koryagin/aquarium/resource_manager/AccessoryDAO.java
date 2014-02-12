@@ -48,7 +48,7 @@ public class AccessoryDAO implements ItemDAO{
 					priceMax = Properties.checkBigDecimalProperty(accessoryProperties, sb.toString());
 					
 					price = Properties.randomPrice(priceMin, priceMax);
-					Item item = new Accessory(uid, name, description, price);
+					Item item = new Accessory.Builder(uid, name).description(description).price(price).build();
 					return item;
 				} catch (MissingResourceException e){
 					LOGGER.error("No such item");

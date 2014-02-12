@@ -23,9 +23,9 @@ import com.epam.koryagin.aquarium.item.Item;
 public class Tank extends Item{
 	
 	private double volume;
-	private List<Animal> inhabitants = new ArrayList<Animal>();
-	private List<Accessory> accessories = new ArrayList<Accessory>();
-
+	private List<Animal> inhabitants;
+	private List<Accessory> accessories;
+	
 	/**
 	 * Default constructor
 	 */
@@ -33,20 +33,8 @@ public class Tank extends Item{
 		super();
 	}
 	
-	public Tank(int uid, String name,  String description, 
-			BigDecimal price,double volume) {
-		super();
-		this.setUID(uid);
-		this.setName(name);
-		this.setDescription(description);
-		this.setPrice(price);
-		this.volume = volume;
-		
-	}
-	
-	
 	/**
-	 * Constructor with parameters
+	 * Constructor with Builder
 	 * @param name - tank item
 	 * @param description - short technical specification 
 	 * @param volume - tank volume
@@ -54,15 +42,49 @@ public class Tank extends Item{
 	 * @param inhabitants - list of animals that live in the tank 
 	 * @param accessories - list of tank accessories
 	 */
-	public Tank(String name, String description, double volume, BigDecimal price, 
-			ArrayList<Animal> inhabitants, ArrayList<Accessory> accessories){
-		this.setName(name);
-		this.setDescription(description);
-		this.setPrice(price);
-		this.volume = volume;
-		this.inhabitants = inhabitants;
-		this.accessories = accessories;
+	public Tank(Builder builder){
+		this.setUID(builder.uid);
+		this.setName(builder.name);
+		this.setDescription(builder.description);
+		this.setPrice(builder.price);
+		this.volume = builder.volume;
+		this.inhabitants = new ArrayList<Animal>();
+		this.accessories = new ArrayList<Accessory>();
 	}
+	
+	public static class Builder{
+		private int uid;
+		private String name;
+		private String description = "NA";
+		private BigDecimal price = BigDecimal.ZERO;
+		private double volume = 0;
+		
+		public Builder(int uid, String name){
+			this.uid = uid;
+			this.name = name;
+		}
+		
+		public Builder description(String text){
+			description = text;
+			return this;
+		}
+		
+		public Builder price(BigDecimal val){
+			price = val;
+			return this;
+		}
+		
+		public Builder volume(double val){
+			volume = val;
+			return this;
+		}
+		
+		public Tank build(){
+			return new Tank(this);
+		}
+	}
+	
+		
 
 	public List<Animal> getInhabitants() {
 		return inhabitants;

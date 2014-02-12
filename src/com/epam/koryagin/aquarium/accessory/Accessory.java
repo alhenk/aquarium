@@ -27,28 +27,38 @@ public class Accessory extends Item{
 		super(); //just a filler
 	}
 	
-	/**
-	 * Constructor with one parameter
-	 * @param name - accessory item
-	 */
-	public Accessory(String name){
-		this.setName(name);
+	public Accessory(Builder builder){
+		this.setUID(builder.uid);
+		this.setName(builder.name);
+		this.setDescription(builder.description);
+		this.setPrice(builder.price);
 	}
 	
-	/**
-	 * Constructor with parameters
-	 * @param name - accessory item
-	 * @param description - short technical specification 
-	 * @param cost - market price (ebay)
-	 */
-	public Accessory(int uid, String name,  String description, 
-			BigDecimal price){
-		this.setUID(uid);
-		this.setName(name);
-		this.setDescription(description);
-		this.setPrice(price);
+	public static class Builder{
+		private int uid;
+		private String name;
+		private String description = "NA";
+		private BigDecimal price = BigDecimal.ZERO;
+		
+		public Builder(int uid, String name){
+			this.uid = uid;
+			this.name = name;
+		}
+		
+		public Builder description(String text){
+			description = text;
+			return this;
+		}
+		
+		public Builder price(BigDecimal val){
+			price = val;
+			return this;
+		}
+		
+		public Accessory build(){
+			return new Accessory(this);
+		}
 	}
-	
 	
 	
 	@Override

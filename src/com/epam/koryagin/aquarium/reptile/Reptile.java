@@ -34,49 +34,58 @@ public class Reptile extends Animal {
 		super();
 	}
 
-	/**
-	 * Constructor with 2 parameters
-	 * 
-	 * @param uid
-	 * @param name
-	 */
-	public Reptile(int uid, String name) {
-		this.setUID(uid);
-		this.setName(name);
+	public Reptile(Builder builder) {
+		this.setUID(builder.uid);
+		this.setName(builder.name);
+		this.setDescription(builder.description);
+		this.setPrice(builder.price);
+		this.setTaxonomy(builder.taxonomy);
+		this.setSizeMax(builder.sizeMax);
+		this.setTankVolumeMin(builder.tankVolumeMin);
 	}
 
-	/**
-	 * Constructor with parameters
-	 * 
-	 * @param name
-	 *            - reptile name
-	 * @param description
-	 *            - taxonomic classification
-	 * @param price
-	 *            - BigDecimal price
-	 * @param sizeMax
-	 *            - maximum length
-	 */
+	public static class Builder {
+		private int uid;
+		private String name;
+		private String description = "NA";
+		private BigDecimal price = BigDecimal.ZERO;
+		private String taxonomy = "NA";
+		private double sizeMax = 0.0;
+		private double tankVolumeMin = 0.0;
 
-	public Reptile(int uid, String name, String description, BigDecimal price,
-			String taxonomy, double sizeMax, double tankVolumeMin) {
-		this.setUID(uid);
-		this.setName(name);
-		this.setDescription(description);
-		this.setPrice(price);
-		this.setTaxonomy(taxonomy);
-		this.setSizeMax(sizeMax);
-		this.setTankVolumeMin(tankVolumeMin);
-	}
+		public Builder(int uid, String name) {
+			this.uid = uid;
+			this.name = name;
+		}
 
-	/**
-	 * Constructor with one parameter
-	 * 
-	 * @param name
-	 *            - species name
-	 */
-	public Reptile(String name) {
-		this.setName(name);
+		public Builder description(String text) {
+			description = text;
+			return this;
+		}
+
+		public Builder price(BigDecimal val) {
+			price = val;
+			return this;
+		}
+
+		public Builder taxonomy(String text) {
+			taxonomy = text;
+			return this;
+		}
+
+		public Builder sizeMax(double val) {
+			sizeMax = val;
+			return this;
+		}
+		
+		public Builder tankVolumeMin(double val) {
+			tankVolumeMin = val;
+			return this;
+		}
+
+		public Reptile build() {
+			return new Reptile(this);
+		}
 	}
 
 	@Override

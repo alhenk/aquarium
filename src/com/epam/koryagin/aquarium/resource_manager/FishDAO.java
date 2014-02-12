@@ -4,9 +4,7 @@ import java.math.BigDecimal;
 import java.util.Enumeration;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-
 import org.apache.log4j.Logger;
-
 import com.epam.koryagin.aquarium.fish.Fish;
 import com.epam.koryagin.aquarium.item.Item;
 
@@ -66,9 +64,10 @@ public class FishDAO implements ItemDAO {
 					
 					price = Properties.randomPrice(priceMin, priceMax);
 					
-					//TODO consider using Builder pattern
-					Item item = new Fish(uid, name, description, price, 
-							taxonomy, sizeMax, tankVolumeMin);
+					//DP Builder
+					Item item = new Fish.Builder(uid, name).description(description)
+									.price(price).taxonomy(taxonomy).sizeMax(sizeMax)
+									.tankVolumeMin(tankVolumeMin).build();
 					return item;
 				} catch (MissingResourceException e){
 					LOGGER.error("No such item");

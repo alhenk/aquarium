@@ -66,9 +66,10 @@ public class ReptileDAO implements ItemDAO {
 					
 					price = Properties.randomPrice(priceMin, priceMax);
 					
-					//TODO consider using Builder pattern
-					Item item = new Reptile(uid, name, description, price, 
-							taxonomy, sizeMax, tankVolumeMin);
+					//DP Builder
+					Item item = new Reptile.Builder(uid, name).description(description)
+							.price(price).taxonomy(taxonomy).sizeMax(sizeMax)
+							.tankVolumeMin(tankVolumeMin).build();
 				
 					return item;
 				} catch (MissingResourceException e){
