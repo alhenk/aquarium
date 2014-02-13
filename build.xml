@@ -21,6 +21,9 @@
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${dist.dir}" />
 		<copy file="./resources/log4j.properties" todir="${build.dir}"/>
+		<copy todir= "${build.dir}/com/epam/koryagin/aquarium/resources">
+			<fileset dir="${src.dir}/com/epam/koryagin/aquarium/resources"></fileset>
+		</copy>
 	</target>
 
 	<target name="build" depends="build-project" />
