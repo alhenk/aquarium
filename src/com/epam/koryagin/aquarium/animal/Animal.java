@@ -50,6 +50,8 @@ public abstract class Animal extends Item {
 	public String toString() {
 		NumberFormat formatter = new DecimalFormat("#0.00");
 		final StringBuilder sb = new StringBuilder();
+		sb.append( this.getUID());
+		sb.append(")\t");
 		sb.append(this.getName().toUpperCase());
 		sb.append(":\t");
 		sb.append(this.getTaxonomy());

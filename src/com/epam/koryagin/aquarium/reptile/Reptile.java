@@ -33,7 +33,12 @@ public class Reptile extends Animal {
 	public Reptile() {
 		super();
 	}
-
+	/**
+	 * Constructor with Builder
+	 * @param name
+	 * @param description 
+	 * @param price - market price
+	 */
 	public Reptile(Builder builder) {
 		this.setUID(builder.uid);
 		this.setName(builder.name);
@@ -88,9 +93,14 @@ public class Reptile extends Animal {
 		}
 	}
 
+	/**
+	 * Ternary vs. Integer.compare(a,b) Ternary used for versions earlier
+	 * Java1.7
+	 */
 	@Override
 	public int compareTo(Item o) {
-		return this.getName().compareTo(o.getName());
+		return (this.getUID() < o.getUID()) ? -1 : ((this.getUID() == o
+				.getUID()) ? 0 : 1);
 	}
 
 	//Getters & Setters
