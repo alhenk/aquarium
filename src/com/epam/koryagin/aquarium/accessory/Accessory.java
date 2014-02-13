@@ -60,7 +60,6 @@ public class Accessory extends Item{
 		}
 	}
 	
-	
 	@Override
 	public String toString(){
 		NumberFormat formatter = new DecimalFormat("#0.00");
