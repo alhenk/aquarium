@@ -1,1 +1,2 @@
-   1 20120213 hotbug - NullPointerException Tank default constructor without ArrayList initialization 
+   1 20120213 hotbug - NullPointerException Tank default constructor without ArrayList initialization
+   2 20120213 hotbug - can't find message.menu.wrongChoice (missing menu)
