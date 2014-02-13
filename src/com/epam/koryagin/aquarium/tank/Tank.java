@@ -30,7 +30,13 @@ public class Tank extends Item{
 	 * Default constructor
 	 */
 	public Tank() {
-		super();
+		this.setUID(0);
+		this.setName("NA");
+		this.setDescription("NA");
+		this.setPrice(BigDecimal.ZERO);
+		this.volume = 0.0;
+		this.inhabitants = new ArrayList<Animal>();
+		this.accessories = new ArrayList<Accessory>();
 	}
 	
 	/**

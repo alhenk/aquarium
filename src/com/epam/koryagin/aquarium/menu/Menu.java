@@ -85,7 +85,6 @@ public class Menu {
 		}
 		TankType theItem = TankType.select(command);
 		if(theItem == null){
-			//OUTPUT.println("Wrong Choice - no such item");
 			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.INIT_TANK;
 		}
@@ -111,7 +110,6 @@ public class Menu {
 		}
 		FishType theItem = FishType.select(command);
 		if(theItem == null){
-			//OUTPUT.println("Wrong Choice - no such item");
 			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.EQUIP_AND_POPULATE;
 		}
@@ -145,7 +143,6 @@ public class Menu {
 		}
 		ReptileType theItem = ReptileType.select(command);
 		if(theItem == null){
-			//OUTPUT.println("Wrong Choice - no such item");	
 			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.EQUIP_AND_POPULATE;
 		}
@@ -177,7 +174,6 @@ public class Menu {
 		}
 		AccessoryType theItem = AccessoryType.select(command);
 		if(theItem == null){
-			//OUTPUT.println("Wrong Choice - no such item");
 			OUTPUT.println(local.getString("message.menu.wrongChoice"));
 			return State.EQUIP_AND_POPULATE;
 		}
