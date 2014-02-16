@@ -19,13 +19,13 @@ import com.epam.koryagin.aquarium.item.Item;
  */
 
 public abstract class Animal extends Item {
-	private double sizeMax;
-	private double tankVolumeMin;
-	private String taxonomy;
 	public static final Comparator<Animal> NAME_COMPARATOR = new AnimalNameComparator();
 	public static final Comparator<Animal> PRICE_COMPARATOR = new AnimalPriceComparator();
 	public static final Comparator<Animal> SIZE_COMPARATOR = new AnimalSizeComparator();
-	
+
+	private double sizeMax;
+	private double tankVolumeMin;
+	private String taxonomy;
 
 	private static class AnimalNameComparator implements Comparator<Animal> {
 		@Override
@@ -40,7 +40,7 @@ public abstract class Animal extends Item {
 			return animal1.getPrice().compareTo(animal2.getPrice());
 		}
 	}
-	
+
 	private static class AnimalSizeComparator implements Comparator<Animal> {
 		@Override
 		public int compare(Animal animal1, Animal animal2) {
