@@ -5,6 +5,7 @@ package com.epam.koryagin.aquarium.animal;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Comparator;
 
 import com.epam.koryagin.aquarium.item.Item;
 
@@ -21,6 +22,33 @@ public abstract class Animal extends Item {
 	private double sizeMax;
 	private double tankVolumeMin;
 	private String taxonomy;
+	public static final Comparator<Animal> NAME_COMPARATOR = new AnimalNameComparator();
+	public static final Comparator<Animal> PRICE_COMPARATOR = new AnimalPriceComparator();
+	public static final Comparator<Animal> SIZE_COMPARATOR = new AnimalSizeComparator();
+	
+
+	private static class AnimalNameComparator implements Comparator<Animal> {
+		@Override
+		public int compare(Animal animal1, Animal animal2) {
+			return animal1.getName().compareToIgnoreCase(animal2.getName());
+		}
+	}
+
+	private static class AnimalPriceComparator implements Comparator<Animal> {
+		@Override
+		public int compare(Animal animal1, Animal animal2) {
+			return animal1.getPrice().compareTo(animal2.getPrice());
+		}
+	}
+	
+	private static class AnimalSizeComparator implements Comparator<Animal> {
+		@Override
+		public int compare(Animal animal1, Animal animal2) {
+			Double size1 = new Double(animal1.getSizeMax());
+			Double size2 = new Double(animal2.getSizeMax());
+			return size1.compareTo(size2);
+		}
+	}
 
 	@Override
 	public int hashCode() {
@@ -59,7 +87,7 @@ public abstract class Animal extends Item {
 		return true;
 	}
 
-	public double getSize() {
+	public double getSizeMax() {
 		return sizeMax;
 	}
 
@@ -93,6 +121,10 @@ public abstract class Animal extends Item {
 		sb.append(":\t");
 		sb.append(this.getTaxonomy());
 		sb.append(", $").append(formatter.format(this.getPrice()));
+		sb.append("\t SIZE = ");
+		sb.append(this.getSizeMax());
+		sb.append("\t TANK = ");
+		sb.append(this.getTankVolumeMin());
 		return sb.toString();
 	}
 }

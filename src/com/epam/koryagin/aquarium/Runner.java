@@ -8,11 +8,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.epam.koryagin.aquarium.fish.Fish;
+import com.epam.koryagin.aquarium.animal.Animal;
 import com.epam.koryagin.aquarium.fish.FishFactory;
-import com.epam.koryagin.aquarium.item.Item;
-import com.epam.koryagin.aquarium.item.ItemComparator;
-import com.epam.koryagin.aquarium.item.ItemComparator.ComparatorType;
+import com.epam.koryagin.aquarium.reptile.ReptileFactory;
 
 /**
  * Aquarium CLI application
@@ -32,37 +30,52 @@ public class Runner {
 		// Collections.sort(list);
 		// printList((ArrayList<Animal>)list);
 		FishFactory ff = new FishFactory();
-		List<Item> fish = new ArrayList<Item>();
-		fish.add((Item) ff.createAnimal(1));
-		fish.add((Fish) ff.createAnimal(2));
-		fish.add((Fish) ff.createAnimal(3));
-		fish.add((Fish) ff.createAnimal(4));
-		fish.add((Fish) ff.createAnimal(5));
-		fish.add((Fish) ff.createAnimal(6));
-		fish.add((Fish) ff.createAnimal(7));
-		fish.add((Fish) ff.createAnimal(8));
-		fish.add((Fish) ff.createAnimal(9));
-		fish.add((Fish) ff.createAnimal(10));
-		ItemComparator ic = new ItemComparator(ComparatorType.PRICE);
-		printList((ArrayList<Item>) fish);
+		List<Animal> fish = new ArrayList<Animal>();
+		fish.add(ff.createAnimal(1));
+		fish.add(ff.createAnimal(2));
+		fish.add(ff.createAnimal(3));
+		fish.add(ff.createAnimal(4));
+		fish.add(ff.createAnimal(5));
+		fish.add(ff.createAnimal(6));
+		fish.add(ff.createAnimal(7));
+		fish.add(ff.createAnimal(8));
+		fish.add(ff.createAnimal(9));
+		fish.add(ff.createAnimal(10));
+		//ItemComparator ic = new ItemComparator(ComparatorType.PRICE);
+		System.out.println("UNSORTED :");
+		printList((List<Animal>) fish);
 
 		System.out.println();
 		System.out.println();
 
-		Collections.sort(fish, ic);
-		printList((ArrayList<Item>) fish);
+		Collections.sort(fish, Animal.SIZE_COMPARATOR);
+		System.out.println("SORT BY SIZE :");
+		printList((ArrayList<Animal>) fish);
 
-		ic = new ItemComparator(ComparatorType.NAME);
+		//ic = new ItemComparator(ComparatorType.NAME);
 		System.out.println();
 		System.out.println();
 
-		Collections.sort(fish, ic);
-		printList((ArrayList<Item>) fish);
+		Collections.sort(fish, Animal.NAME_COMPARATOR);
+		System.out.println("SORT BY NAME :");
+		printList((ArrayList<Animal>) fish);
+
+		System.out.println();
+		System.out.println();
+		
+		Collections.sort(fish, Animal.PRICE_COMPARATOR);
+		System.out.println("SORT BY PRICE :");
+		printList((ArrayList<Animal>) fish);
 
 		System.out.println();
 		System.out.println();
 
 		Collections.sort(fish);
+		System.out.println("SORT BY NATURAL ORDRDER (COMPARABLE) :");
+		printList((ArrayList<Animal>) fish);
+		
+		System.out.println();
+		System.out.println();
 
 		// FishDAO fishDAO = new FishDAO();
 		// Fish fish = (Fish)(fishDAO.getItem(11));
@@ -95,11 +108,46 @@ public class Runner {
 		// OUTPUT.println(ResourceManager.fishDao.fetchFishMaxPrice());
 		// OUTPUT.printf("%d",4);
 
-		Actions.runMenu();
+		//Actions.runMenu();
+		
+		ReptileFactory rf = new ReptileFactory();
+		List<Animal> reptile = new ArrayList<Animal>();
+		reptile.add(rf.createAnimal(1));
+		reptile.add(rf.createAnimal(2));
+		reptile.add(rf.createAnimal(3));
+		reptile.add(rf.createAnimal(4));
+		reptile.add(rf.createAnimal(5));
+		reptile.add(rf.createAnimal(6));
+		reptile.add(rf.createAnimal(7));
+		reptile.add(rf.createAnimal(8));
+		reptile.add(rf.createAnimal(9));
+		System.out.println("UNSORTED :");
+		printList((List<Animal>) reptile);
+
+		System.out.println();
+		System.out.println();
+
+		Collections.sort(reptile, Animal.SIZE_COMPARATOR);
+		System.out.println("SORT BY SIZE :");
+		printList((ArrayList<Animal>) reptile);
+		
+		System.out.println();
+		System.out.println();
+
+		Collections.sort(reptile, Animal.NAME_COMPARATOR);
+		System.out.println("SORT BY NAME :");
+		printList((ArrayList<Animal>) reptile);
+		
+		System.out.println();
+		System.out.println();
+
+		Collections.sort(reptile, Animal.PRICE_COMPARATOR);
+		System.out.println("SORT BY PRICE :");
+		printList((ArrayList<Animal>) reptile);
 	}
 
-	private static void printList(ArrayList<Item> list) {
-		for (Item a : list) {
+	private static void printList(List<Animal> fish) {
+		for (Animal a : fish) {
 			System.out.println(a);
 		}
 	}
