@@ -1,17 +1,18 @@
 package com.epam.koryagin.aquarium.item;
 
 import java.util.Comparator;
-import java.util.List;
 
-public class ItemComparator implements Comparator<Item>{
+public class ItemComparator implements Comparator<Item> {
 	private ComparatorType comparatorType;
-	public enum ComparatorType{
+
+	public enum ComparatorType {
 		NAME, PRICE;
 	}
-	public ItemComparator(List<Item> itemList, ComparatorType comparatorType) {
+
+	public ItemComparator(ComparatorType comparatorType) {
 		this.comparatorType = comparatorType;
 	}
-	
+
 	@Override
 	public int compare(Item item1, Item item2) {
 		switch (comparatorType) {
@@ -20,8 +21,8 @@ public class ItemComparator implements Comparator<Item>{
 		case PRICE:
 			return item1.getPrice().compareTo(item2.getPrice());
 		default:
-			return item1.compareTo(item2); //compare UID
+			return item1.compareTo(item2); // compare UID
 		}
 	}
-	
+
 }

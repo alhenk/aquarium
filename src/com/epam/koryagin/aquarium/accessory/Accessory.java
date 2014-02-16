@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-
 import com.epam.koryagin.aquarium.item.Item;
 
 /**
@@ -27,11 +26,14 @@ public class Accessory extends Item {
 	public Accessory() {
 		super(); // just a filler
 	}
+
 	/**
 	 * Constructor with Builder
+	 * 
 	 * @param name
-	 * @param description 
-	 * @param price - market price
+	 * @param description
+	 * @param price
+	 *            - market price
 	 */
 	public Accessory(Builder builder) {
 		this.setUID(builder.uid);
@@ -67,6 +69,28 @@ public class Accessory extends Item {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Accessory other = (Accessory) obj;
+		if (type != other.type)
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		NumberFormat formatter = new DecimalFormat("#0.00");
 		final StringBuilder sb = new StringBuilder();
@@ -84,7 +108,7 @@ public class Accessory extends Item {
 	public void setType(AccessoryType type) {
 		this.type = type;
 	}
-	
+
 	/**
 	 * Ternary vs. Integer.compare(a,b) Ternary used for versions earlier
 	 * Java1.7

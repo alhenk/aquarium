@@ -22,6 +22,43 @@ public abstract class Animal extends Item {
 	private double tankVolumeMin;
 	private String taxonomy;
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(sizeMax);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(tankVolumeMin);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result
+				+ ((taxonomy == null) ? 0 : taxonomy.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Animal other = (Animal) obj;
+		if (Double.doubleToLongBits(sizeMax) != Double
+				.doubleToLongBits(other.sizeMax))
+			return false;
+		if (Double.doubleToLongBits(tankVolumeMin) != Double
+				.doubleToLongBits(other.tankVolumeMin))
+			return false;
+		if (taxonomy == null) {
+			if (other.taxonomy != null)
+				return false;
+		} else if (!taxonomy.equals(other.taxonomy))
+			return false;
+		return true;
+	}
+
 	public double getSize() {
 		return sizeMax;
 	}
@@ -50,7 +87,7 @@ public abstract class Animal extends Item {
 	public String toString() {
 		NumberFormat formatter = new DecimalFormat("#0.00");
 		final StringBuilder sb = new StringBuilder();
-		sb.append( this.getUID());
+		sb.append(this.getUID());
 		sb.append(")\t");
 		sb.append(this.getName().toUpperCase());
 		sb.append(":\t");

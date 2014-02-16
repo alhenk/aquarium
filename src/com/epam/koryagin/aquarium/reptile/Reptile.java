@@ -93,6 +93,41 @@ public class Reptile extends Animal {
 		}
 	}
 
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(airTemperatureMax);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(airTemperatureMin);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(humidity);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reptile other = (Reptile) obj;
+		if (Double.doubleToLongBits(airTemperatureMax) != Double
+				.doubleToLongBits(other.airTemperatureMax))
+			return false;
+		if (Double.doubleToLongBits(airTemperatureMin) != Double
+				.doubleToLongBits(other.airTemperatureMin))
+			return false;
+		if (Double.doubleToLongBits(humidity) != Double
+				.doubleToLongBits(other.humidity))
+			return false;
+		return true;
+	}
 	/**
 	 * Ternary vs. Integer.compare(a,b) Ternary used for versions earlier
 	 * Java1.7

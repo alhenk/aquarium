@@ -28,11 +28,14 @@ public class Fish extends Animal {
 	public Fish() {
 		super(); // just a filler
 	}
+
 	/**
 	 * Constructor with Builder
+	 * 
 	 * @param name
-	 * @param description 
-	 * @param price - market price
+	 * @param description
+	 * @param price
+	 *            - market price
 	 */
 	public Fish(Builder builder) {
 		this.setUID(builder.uid);
@@ -77,7 +80,7 @@ public class Fish extends Animal {
 			sizeMax = val;
 			return this;
 		}
-		
+
 		public Builder tankVolumeMin(double val) {
 			tankVolumeMin = val;
 			return this;
@@ -86,6 +89,48 @@ public class Fish extends Animal {
 		public Fish build() {
 			return new Fish(this);
 		}
+	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(pHMax);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(pHMin);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(waterTemperatureMax);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(waterTemperatureMin);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Fish other = (Fish) obj;
+		if (Double.doubleToLongBits(pHMax) != Double
+				.doubleToLongBits(other.pHMax))
+			return false;
+		if (Double.doubleToLongBits(pHMin) != Double
+				.doubleToLongBits(other.pHMin))
+			return false;
+		if (Double.doubleToLongBits(waterTemperatureMax) != Double
+				.doubleToLongBits(other.waterTemperatureMax))
+			return false;
+		if (Double.doubleToLongBits(waterTemperatureMin) != Double
+				.doubleToLongBits(other.waterTemperatureMin))
+			return false;
+		return true;
 	}
 
 	/**
