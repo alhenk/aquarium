@@ -24,5 +24,4 @@ public class ItemComparator implements Comparator<Item> {
 			return item1.compareTo(item2); // compare UID
 		}
 	}
-
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item uid="asdf" name="seahorse" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns="urn" xsi:schemaLocation="urn Item.xsd">
+	<description>NA</description>
+	<price>120.3</price>
+	<Animal>
+		<sizeMax>10.2</sizeMax>
+		<tankVolumeMin>30</tankVolumeMin>
+		<taxonomy>NA</taxonomy>
+		<Fish>
+			<pHMax>16.1</pHMax>
+			<pHMin>11.3</pHMin>
+			<waterTemperatureMax>25.0</waterTemperatureMax>
+			<waterTemperatureMin>18.0</waterTemperatureMin>
+		</Fish>
+	</Animal>
+</Item>
